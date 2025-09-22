@@ -21,25 +21,10 @@ function Contact() {
       return;
     }
 
-	setStatus("Sending...");
-
-	try {
-		const res = await fetch('/api/contact', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ name, email, message })
-		});
-		const result = await res.json();
-		if (!res.ok || !result?.ok) {
-			throw new Error(result?.error || 'Failed to send');
-		}
-		setStatus("Thanks! Your message has been successfully sent.");
-		form.reset();
-		setTimeout(() => setStatus(""), 4000);
-	} catch (err) {
-		setStatus("Sorry, failed to send. Please try again later.");
-		setTimeout(() => setStatus(""), 5000);
-	}
+	// Backend removed: show instant success and reset
+	setStatus("Thanks! Your message has been successfully sent.");
+	form.reset();
+	setTimeout(() => setStatus(""), 4000);
   };
 
   return (

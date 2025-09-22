@@ -1,10 +1,32 @@
+import { useEffect, useState } from 'react';
+
 function Projects() {
+  const [isMobile, setIsMobile] = useState(false);
+  const [showAll, setShowAll] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 680px)');
+    const apply = () => setIsMobile(mq.matches);
+    apply();
+    mq.addEventListener?.('change', apply);
+    return () => mq.removeEventListener?.('change', apply);
+  }, []);
+
+  const handleToggle = (e) => {
+    e.preventDefault();
+    setShowAll((v) => !v);
+  };
+
   return (
     <section id="work" aria-labelledby="work-title">
       <div className="container">
         <div className="section-head">
           <h2 id="work-title">Selected Work</h2>
-          <a className="btn secondary" href="#">See All</a>
+          {isMobile && (
+            <button className="btn secondary" onClick={handleToggle} aria-expanded={showAll}>
+              {showAll ? 'Show Less' : 'See All'}
+            </button>
+          )}
         </div>
         <div className="grid projects">
 
@@ -59,7 +81,7 @@ function Projects() {
           </article>
 
           {/* Project 3 */}
-          <article className="project card" aria-labelledby="p3-title">
+          <article className="project card" aria-labelledby="p3-title" style={isMobile && !showAll ? { display: 'none' } : undefined}>
             <div className="thumb">
               <img
                 loading="lazy"

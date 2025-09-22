@@ -11,6 +11,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Services from "./components/compo/service";
 import WorkProcess from "./components/compo/WorkProcess";
+import ChatWidget from "./components/ChatWidget";
 
 
 
@@ -30,6 +31,7 @@ function App() {
       <About/>
       <Contact/>
       <Footer/>
+      <ChatWidget/>
     </>
   );
 }

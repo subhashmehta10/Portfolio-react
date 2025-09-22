@@ -1,4 +1,5 @@
 import React from "react";
+import Cursor from "./components/Cursor"
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Projects from "./components/Projects";
@@ -8,6 +9,8 @@ import Experience from "./components/Experience";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Services from "./components/compo/service";
+import WorkProcess from "./components/compo/WorkProcess";
 
 
 
@@ -15,10 +18,13 @@ function App() {
 
   return (
     <>
-     <Header/>
+      <Cursor/>
+      <Header/>
       <Hero/>
       <Projects/>
       <Skills/>
+      <Services/>
+      <WorkProcess/>
       <Education/>
       <Experience/>
       <About/>

@@ -10,6 +10,7 @@
       --radius: 16px;
       --shadow: 0 10px 30px rgba(0,0,0,.35);
       --maxw: 1120px;
+      --mixbtn:linear-gradient(180deg, color-mix(in oklab, var(--brand) 20%, transparent), color-mix(in oklab, var(--brand-2) 20%, transparent));
     }
     @media (prefers-color-scheme: light) {
       :root {
@@ -31,17 +32,18 @@
          margin:0;
           font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
           color: var(--text);
-          background: radial-gradient(1200px 700px at 10% -10%, rgba(139,92,246,.18), transparent 60%), radial-gradient(1000px 600px at 90% 10%, rgba(6,182,212,.15), transparent 60%), var(--bg); }
+          background: radial-gradient(1200px 700px at 10% -10%, rgba(139,92,246,.18), transparent 60%), radial-gradient(1000px 600px at 90% 10%, rgba(6,182,212,.15), transparent 60%), var(--bg); 
+        }
       a {
          color: inherit; text-decoration: none; 
         }
       img {
          max-width: 100%; display: block; 
         }
-  .container {
-     width: min(84% - 1rem);
-      margin-inline: auto; 
-    }
+.container {
+    width: min(var(--maxw), 92vw);
+    margin-inline: auto; 
+  }
     .btn {
       color: white;
        display:inline-flex; 
@@ -76,6 +78,7 @@
       display: flex;
       position:fixed; 
       width: calc(100% - 40px);
+      height: 10vh;
       margin: 20px 20px 20px 20px; 
       border-radius: 15px;
       z-index: 50; 
@@ -92,17 +95,9 @@
       display:flex; 
       align-items:center; 
       gap:.7rem; 
-      font-weight:800; 
+      font-size: 2rem;
+      font-weight:700; 
       letter-spacing:.4px; 
-    }
-    .brand .logo { 
-      width:36px; 
-      height:36px; 
-      display:grid; 
-      place-items:center; 
-      border-radius:12px; 
-      background: conic-gradient(from 120deg, var(--brand), var(--brand-2), var(--accent)); 
-      box-shadow: inset 0 -4px 12px #0003; 
     }
     nav ul { 
       display:flex; 
@@ -230,29 +225,28 @@ h1 {
     }
 
     /* Projects */
-    .grid { 
+  .grid { 
       display:grid; 
-      gap:1.2rem; 
+      gap:1.2rem;
     }
-    .projects { 
-      grid-template-columns: repeat(18, 1fr); 
+  .projects { 
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
     }
     .card { 
       border:1px solid #ffffff1f; 
       border-radius: var(--radius); 
       background: linear-gradient(180deg, rgba(255,255,255,.05), transparent); 
-      padding: 0.5rem; 
+      padding: 0.9rem; 
       transition: transform .15s ease, border .2s ease, background .2s ease; 
       box-shadow: var(--shadow); 
     }
     .card:hover { 
-      transform: translateY(-3px); 
-      border-color: #ffffff3d; 
+      transform: translateY(-3px);
+      border-color: #ffffff3d;
     }
-    .project { 
-      grid-column: span 6; 
+  .project { 
       display:grid; 
-      gap:.8rem; 
+      gap:.4rem; 
     }
     .project .thumb { 
       aspect-ratio: 16/9; 
@@ -274,8 +268,8 @@ h1 {
     }
 
     /* Skills */
-    .skills { 
-      grid-template-columns: repeat(4, 1fr); 
+  .skills { 
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
     }
     .skill { 
       display:flex; 
@@ -325,8 +319,18 @@ h1 {
     }
 
     /* Contact */
-    form { display:grid; gap:.9rem; }
-    input, textarea { width:100%; padding:.9rem 1rem; border-radius: 12px; border:1px solid #ffffff28; background: #0f172a; color: var(--text); outline:none; }
+    form { 
+      display:grid; 
+      gap:.9rem; 
+    }
+    input, textarea { width:100%; 
+      padding:.9rem 1rem; 
+      border-radius: 12px; 
+      border:1px solid #ffffff28; 
+      background: #0f172a; 
+      color: var(--text); 
+      outline:none; 
+    }
     input:focus, textarea:focus { box-shadow: var(--ring); border-color: color-mix(in oklab, var(--brand) 40%, #ffffff28); }
     textarea { min-height: 140px; resize: vertical; }
 
@@ -338,10 +342,12 @@ h1 {
     .center { align-items:center; justify-content:center; }
 
     /* Responsive */
-    @media (max-width: 900px) {
+  @media (max-width: 900px) {
       .hero-grid { grid-template-columns: 1fr; }
-      .projects .project { grid-column: span 12; }
-      .skills { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .section-head { flex-direction: column; align-items: start; gap:.6rem; }
+      header { width: calc(100% - 24px); margin: 12px; height: auto; }
     }
     @media (max-width: 680px) {
       nav ul { 
@@ -374,3 +380,109 @@ h1 {
         padding-top: 6.5rem; 
       }
     }
+    @media (max-width: 380px) {
+      .btn { width: 100%; justify-content: center; }
+      .hero-cta { gap:.6rem; }
+    }
+    
+
+    /* What i can do for you------------------------------ */
+
+   .services-container {
+     text-align: center;
+     padding: 2rem;
+     border-radius: 14px;
+   }
+   .services-header {
+     font-size: 2.5rem;
+     font-weight: bold;
+     margin-bottom: 1rem;
+   }
+   .services-subheader {
+     font-size: 1.2rem;
+     margin-bottom: 2rem;
+   }
+   .services-grid {
+     display: flex;
+     justify-content: center;
+     gap: 1rem;
+     flex-wrap: wrap;
+     margin-top: 2rem ;
+   }
+   .service-card:hover { 
+      transform: translateY(-3px); 
+      border-color: #ffffff3d; 
+    }
+   .service-card {
+     background: var(--panel);
+     border-radius: 10px;
+     box-shadow: var(--shadow);
+     padding: 1.5rem;
+     width: 285px;
+   }
+   .service-icon {
+     font-size: 3rem;
+     margin-bottom: 1rem;
+   }
+   .price {
+     font-weight: bold;
+     margin-top: 1rem;
+   }
+   #money {
+     height: 35px;
+     width: 250px;
+     border-radius: 24px;
+     cursor: pointer;
+     background: var(--mixbtn);
+   }
+   .card-container {
+     display: flex;
+     justify-content: center;
+     /* Center horizontally */
+     align-items: center;
+     /* Center vertically */
+     height: 100vh;
+     /* Full height of the viewport, if needed */
+   }
+
+
+   /* My work Process------------- */
+
+   .work-process-container {
+     text-align: center;
+     padding: 50px;
+     border-radius: 14px;
+   }
+   .work-steps {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 18px;
+     justify-content: center;
+   }
+   .work-step {
+     background: var(--panel);
+     border-radius: 8px;
+     margin: 10px;
+     padding: 20px;
+     box-shadow: var(--shadow);
+     width: 40vh;
+   }
+   .work-step:hover { 
+      transform: translateY(-3px); 
+      border-color: #ffffff3d; 
+    }
+   .icon {
+     font-size: 30px;
+     margin-bottom: 10px;
+   }
+   .step-number {
+     display: inline-block;
+     background: var(--mixbtn);
+     border-radius: 50%;
+     width: 30px;
+     height: 30px;
+     line-height: 30px;
+     margin-top: 10px;
+   }
+
+   

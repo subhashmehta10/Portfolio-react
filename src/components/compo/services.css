@@ -1,0 +1,170 @@
+   /* src/Services.css */
+   .services-container {
+     text-align: center;
+     padding: 2rem;
+     border-radius: 14px;
+   }
+
+   .services-header {
+     font-size: 2.5rem;
+     font-weight: bold;
+     margin-bottom: 1rem;
+   }
+
+   .services-subheader {
+     font-size: 1.2rem;
+     margin-bottom: 2rem;
+   }
+
+   .services-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+     gap: 1rem;
+     margin-top: 2rem;
+   }
+
+   .service-card {
+     border-radius: 10px;
+     padding: 1.5rem;
+     width: 100%;
+     max-width: 320px;
+     margin-inline: auto;
+   }
+
+   .service-icon {
+     font-size: 3rem;
+     margin-bottom: 1rem;
+   }
+
+   .price {
+     font-weight: bold;
+     margin-top: 1rem;
+   }
+
+   #money {
+     height: 35px;
+     width: 250px;
+     border-radius: 24px;
+     cursor: pointer;
+     background: linear-gradient(90deg, #ff0076, #ff6e40);
+   }
+
+   /* Parent container */
+   .card-container {
+     display: grid;
+     place-items: center;
+     min-height: 60vh;
+   }
+
+   /* Existing Styles */
+   .design-card {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     align-items: center;
+     gap: 20px;
+     margin: auto;
+     padding: 20px;
+     width: min(100%, 1024px);
+     border: 1px solid #ccc;
+     border-radius: 10px;
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+     background-color: #fff;
+     margin-top: 20px;
+   }
+
+   .image-container img {
+     border-radius: 10px;
+     width: 100%;
+     height: auto;
+     max-height: 520px;
+     object-fit: cover;
+   }
+
+
+   .Btn {
+     background: linear-gradient(90deg, #ff0076, #ff6e40);
+     color: white;
+     border: none;
+     padding: 10px 20px;
+     border-radius: 5px;
+     cursor: pointer;
+   }
+
+   .Btn:hover {
+     background: linear-gradient(90deg, #ff6e40, #ff0076);
+   }
+
+   .technologies {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 10px;
+     margin: 10px 0;
+   }
+
+   #txt {
+     height: 27px;
+     width: 55px;
+     background-color: #8d8181;
+     border-radius: 14px;
+   }
+
+   #txt1 {
+     height: 27px;
+     width: 72px;
+     background-color: #8d8181;
+     border-radius: 14px;
+   }
+
+   #txt2 {
+     height: 27px;
+     width: 75px;
+     background-color: #8d8181;
+     border-radius: 14px;
+   }
+
+   #txt3 {
+     height: 27px;
+     width: 78px;
+     background-color: #8d8181;
+     border-radius: 14px;
+   }
+
+   .work-process-container {
+     text-align: center;
+     padding: 40px;
+     background: linear-gradient(90deg, rgb(174, 222, 245), rgb(239, 140, 224));
+     border-radius: 14px;
+   }
+
+   .work-steps {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+     gap: 18px;
+     margin-top: 20px;
+   }
+
+   .work-step {
+     background: white;
+     border-radius: 8px;
+     padding: 20px;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+   }
+
+   @media (max-width: 768px) {
+     .design-card { grid-template-columns: 1fr; }
+   }
+
+   .icon {
+     font-size: 30px;
+     margin-bottom: 10px;
+   }
+
+   .step-number {
+     display: inline-block;
+     background: #e0e0e0;
+     border-radius: 50%;
+     width: 30px;
+     height: 30px;
+     line-height: 30px;
+     margin-top: 10px;
+   }

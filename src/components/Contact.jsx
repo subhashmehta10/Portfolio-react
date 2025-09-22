@@ -3,7 +3,7 @@ import { useState } from "react";
 function Contact() {
   const [status, setStatus] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const data = new FormData(form);
@@ -21,9 +21,25 @@ function Contact() {
       return;
     }
 
-    setStatus("Thanks! Your message has been Sucessfully Send.");
-    form.reset();
-    setTimeout(() => setStatus(""), 4000);
+	setStatus("Sending...");
+
+	try {
+		const res = await fetch('/api/contact', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ name, email, message })
+		});
+		const result = await res.json();
+		if (!res.ok || !result?.ok) {
+			throw new Error(result?.error || 'Failed to send');
+		}
+		setStatus("Thanks! Your message has been successfully sent.");
+		form.reset();
+		setTimeout(() => setStatus(""), 4000);
+	} catch (err) {
+		setStatus("Sorry, failed to send. Please try again later.");
+		setTimeout(() => setStatus(""), 5000);
+	}
   };
 
   return (

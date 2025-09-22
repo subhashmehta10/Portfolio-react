@@ -7,7 +7,7 @@ function About() {
         <div className="section-head">
           <h2 id="about-title">About</h2>
         </div>
-        <div className="grid" style={{ gridTemplateColumns: "1fr 3fr", gap: "1.5rem" }}>
+        <div className="grid about-grid">
           <div className="card">
             <img loading="lazy" alt="Portrait" src={IMG} style={{ borderRadius: "12px" }}/>
           </div>

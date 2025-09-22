@@ -33,7 +33,7 @@ function Contact() {
         <div className="section-head">
           <h2 id="contact-title">Contact</h2>
         </div>
-        <div className="grid" style={{ gridTemplateColumns: "1.2fr .8fr", gap: "1.2rem" }}>
+        <div className="grid contact-grid">
           <form className="card" onSubmit={handleSubmit} noValidate>
             <label>
               <span>Name</span>

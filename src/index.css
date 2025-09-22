@@ -33,7 +33,18 @@
       font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
       color: var(--text);
       background: radial-gradient(1200px 700px at 10% -10%, rgba(139,92,246,.18), transparent 60%), radial-gradient(1000px 600px at 90% 10%, rgba(6,182,212,.15), transparent 60%), var(--bg); 
+      background-repeat: no-repeat;
+      background-size: 180% 180%, 180% 180%, auto;
+      background-position: 0% 0%, 100% 0%, 0 0;
+      background-attachment: fixed;
+      animation: bg-move 26s ease-in-out infinite alternate;
     }
+  @media (prefers-reduced-motion: reduce) { body { animation: none; } }
+  @keyframes bg-move {
+    0% { background-position: 0% 0%, 100% 0%, 0 0; }
+    50% { background-position: 40% 40%, 60% 40%, 0 0; }
+    100% { background-position: 100% 100%, 0% 100%, 0 0; }
+  }
   a {
      color: inherit; text-decoration: none; 
     }
@@ -89,7 +100,11 @@ header {
   display:flex; 
   align-items:center; 
   justify-content:space-between; 
-  padding: .85rem 0; 
+  padding: .85rem 20px; 
+}
+/* Push menu button to the far right on small screens */
+@media (max-width: 680px) {
+  .nav .menu-btn { margin-left: auto; }
 }
 .brand { 
   display:flex; 
@@ -212,6 +227,7 @@ h1 {
 section { 
   padding: 4rem 0; 
 }
+.about-grid { grid-template-columns: 1fr 3fr; gap: 1.5rem; }
 .section-head { 
   display:flex; 
   align-items:end; 
@@ -232,6 +248,7 @@ section {
 .projects { 
   grid-template-columns: repeat(18, 1fr); 
 }
+.contact-grid { grid-template-columns: 1.2fr .8fr; gap: 1.2rem; }
 .card { 
   border:1px solid #ffffff1f; 
   border-radius: var(--radius); 
@@ -339,6 +356,31 @@ textarea { min-height: 140px; resize: vertical; }
 /* Footer */
 footer { padding: 2.5rem 0 3.5rem; color: var(--muted); }
 
+/* Falling stars */
+@keyframes star-fall {
+  0% { transform: translateY(-10vh); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(calc(100vh - 48px)); opacity: 1; }
+}
+@keyframes star-shine {
+  0% { transform: scale(1); box-shadow: 0 0 8px #ffffff99, 0 0 16px #ffffff55; }
+  50% { transform: scale(1.8); box-shadow: 0 0 14px #ffffffcc, 0 0 26px #ffffff88; }
+  100% { transform: scale(0.4); opacity: 0; }
+}
+
+.star {
+  position: fixed;
+  top: -10vh;
+  width: 6px; height: 6px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #ffffff99, 0 0 16px #ffffff55;
+  animation: star-fall var(--fall-dur, 5s) linear forwards;
+  pointer-events: none;
+  z-index: 5;
+}
+
 /* Utilities */
 .flex { display:flex; }
 .center { align-items:center; justify-content:center; }
@@ -348,6 +390,8 @@ footer { padding: 2.5rem 0 3.5rem; color: var(--muted); }
   .hero-grid { grid-template-columns: 1fr; }
   .projects .project { grid-column: span 12; }
   .skills { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 680px) {
   nav ul { 
@@ -379,6 +423,11 @@ footer { padding: 2.5rem 0 3.5rem; color: var(--muted); }
   .hero { 
     padding-top: 6.5rem; 
   }
+  /* Projects & Skills - phone layout */
+  .projects { grid-template-columns: 1fr; }
+  .projects .project { grid-column: auto; }
+  .skills { grid-template-columns: 1fr; }
+  .grid { gap: .9rem; }
 }
 
 

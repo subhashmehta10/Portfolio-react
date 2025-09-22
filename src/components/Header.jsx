@@ -2,13 +2,39 @@ import { useEffect } from "react";
 
 function Header() {
   useEffect(() => {
-    const menuBtn = document.querySelector(".menu-btn");
-    const menu = document.querySelector("#menu");
+    const header = document.querySelector("header[aria-label='Primary']");
+    const menuBtn = header?.querySelector(".menu-btn");
+    const menu = header?.querySelector("#menu");
 
-    menuBtn?.addEventListener("click", () => {
+    if (!menuBtn || !menu) return;
+
+    const toggle = () => {
       const open = menu.classList.toggle("open");
       menuBtn.setAttribute("aria-expanded", String(open));
-    });
+    };
+    const close = () => {
+      menu.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+    };
+
+    const onBtnClick = () => toggle();
+    const onLinkClick = (e) => {
+      const target = e.target;
+      if (target.tagName === "A") close();
+    };
+    const onKey = (e) => {
+      if (e.key === "Escape") close();
+    };
+    const onClickOutside = (e) => {
+      if (!header.contains(e.target)) close();
+    };
+
+    menuBtn.addEventListener("click", onBtnClick);
+    menu.addEventListener("click", onLinkClick);
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("click", onClickOutside);
+    const onResize = () => { if (window.innerWidth > 680) close(); };
+    window.addEventListener("resize", onResize);
 
     const links = Array.from(document.querySelectorAll('nav a[href^="#"]'));
     const sections = links
@@ -32,6 +58,15 @@ function Header() {
 
     document.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
+
+    return () => {
+      menuBtn.removeEventListener("click", onBtnClick);
+      menu.removeEventListener("click", onLinkClick);
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("click", onClickOutside);
+      window.removeEventListener("resize", onResize);
+      document.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   return (

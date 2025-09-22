@@ -50,7 +50,7 @@ function Projects() {
               MRR trends, churn insights.
             </p>
             <div className="hero-cta">
-              <a className="btn" href="#">Live</a>
+              <a className="btn" href="#">View more</a>
               <a className="btn secondary" href="#">Case Study</a>
             </div>
           </article>
@@ -75,7 +75,7 @@ function Projects() {
               role-based access.
             </p>
             <div className="hero-cta">
-              <a className="btn" href="#">Live</a>
+              <a className="btn" href="#">View more</a>
               <a className="btn secondary" href="#">GitHub</a>
             </div>
           </article>
@@ -100,7 +100,7 @@ function Projects() {
               server-side rendering.
             </p>
             <div className="hero-cta">
-              <a className="btn" href="#">Live</a>
+              <a className="btn" href="#">View more</a>
               <a className="btn secondary" href="#">Case Study</a>
             </div>
           </article>

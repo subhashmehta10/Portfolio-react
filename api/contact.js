@@ -1,13 +1,36 @@
 import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
+  // Basic CORS for safety (same-origin forms won't need this but it doesn't hurt)
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+    return res.status(204).end();
+  }
   if (req.method !== "POST") {
-    res.setHeader("Allow", ["POST"]);
+    res.setHeader("Allow", ["POST", "OPTIONS"]);
     return res.status(405).json({ ok: false, error: "Method not allowed" });
   }
 
   try {
-    const { name, email, message } = req.body || {};
+    // Parse JSON body robustly (covers cases where req.body is a string/undefined)
+    let body = req.body;
+    if (!body) {
+      const chunks = [];
+      for await (const chunk of req) chunks.push(chunk);
+      const raw = Buffer.concat(chunks).toString("utf8");
+      if (raw) {
+        try { body = JSON.parse(raw); } catch { body = {}; }
+      } else {
+        body = {};
+      }
+    } else if (typeof body === "string") {
+      try { body = JSON.parse(body); } catch { body = {}; }
+    }
+
+    const { name, email, message } = body || {};
     if (!name || !email || !message) {
       return res.status(400).json({ ok: false, error: "Missing required fields" });
     }

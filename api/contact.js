@@ -61,7 +61,8 @@ export default async function handler(req, res) {
       });
     }
 
-    const toAddress = process.env.TO_EMAIL || "kumarmehta172@gmail.com";
+    const toAddress = "kumarmehta172@gmail.com";
+    const toAddress = "kumarmehta172@gmail.com";
     const fromAddress = process.env.FROM_EMAIL || process.env.SMTP_USER || "no-reply@example.com";
 
     const info = await transporter.sendMail({

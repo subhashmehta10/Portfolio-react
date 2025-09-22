@@ -68,7 +68,7 @@ function Contact() {
             </div>
           </form>
           <aside className="card">
-            <p><strong>Email:</strong> <a href="mailto:kumarmehta172@example.com">kumarmehta172@example.com</a></p>
+            <p><strong>Email:</strong> <a href="mailto:kumarmehta172@gmail.com">kumarmehta172@gmail.com</a></p>
             <p><strong>Location:</strong> Bhopal, Madhya Pradesh</p>
             <p><strong>Social:</strong></p>
             <p className="hero-cta" style={{ marginTop: ".4rem" }}>

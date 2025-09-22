@@ -37,11 +37,11 @@ function Contact() {
           <form className="card" onSubmit={handleSubmit} noValidate>
             <label>
               <span>Name</span>
-              <input type="text" name="name" placeholder="Ada Lovelace" required />
+              <input type="text" name="name" placeholder="Enter Your Name" required />
             </label>
             <label>
               <span>Email</span>
-              <input type="email" name="email" placeholder="you@domain.com" required />
+              <input type="email" name="email" placeholder="Enter Your Email" required />
             </label>
             <label>
               <span>Message</span>

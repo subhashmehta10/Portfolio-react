@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import Image from '../assets/Image/Project1.png';
 
 function Projects() {
   const [isMobile, setIsMobile] = useState(false);
@@ -36,23 +35,23 @@ function Projects() {
             <div className="thumb">
               <img
                 loading="lazy"
-                src="{Project1}"
-                alt="Dashboard app preview"
+                src="./src/assets/Image/Project1.png"
+                alt="Online Shoping Website"
               />
             </div>
             <div className="tags">
-              <span className="chip">React</span>
-              <span className="chip">Node</span>
-              <span className="chip">PostgreSQL</span>
+              <span className="chip">HTML</span>
+              <span className="chip">CSS</span>
+              <span className="chip">JavaScript</span>
             </div>
-            <h3 id="p1-title">SaaS Analytics Dashboard</h3>
+            <h3 id="p1-title">Online Shoping Website</h3>
             <p className="lead">
               End-to-end platform for subscription analytics: cohort analysis,
               MRR trends, churn insights.
             </p>
             <div className="hero-cta">
               <a className="btn" href="#">View more</a>
-              <a className="btn secondary" href="#">Case Study</a>
+              <a className="btn secondary" href="https://e-commerce-online-shoping.vercel.app/">Go to Project</a>
             </div>
           </article>
 
@@ -61,16 +60,16 @@ function Projects() {
             <div className="thumb">
               <img
                 loading="lazy"
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop"
+                src="./src/assets/Image/Project2.png"
                 alt="Team collaboration app preview"
               />
             </div>
             <div className="tags">
-              <span className="chip">Next.js</span>
-              <span className="chip">Tailwind</span>
-              <span className="chip">Prisma</span>
+              <span className="chip">HTML</span>
+              <span className="chip">CSS</span>
+              <span className="chip">Javascript</span>
             </div>
-            <h3 id="p2-title">Collab Workspace</h3>
+            <h3 id="p2-title">Classroom Scheduler</h3>
             <p className="lead">
               A realtime whiteboard and notes app with presence, comments, and
               role-based access.
@@ -86,23 +85,23 @@ function Projects() {
             <div className="thumb">
               <img
                 loading="lazy"
-                src="https://images.unsplash.com/photo-1516117172878-fd2c41f4a759?q=80&w=1200&auto=format&fit=crop"
+                src="./src/assets/Image/Project 3.png"
                 alt="E-commerce storefront preview"
               />
             </div>
             <div className="tags">
-              <span className="chip">Vue</span>
-              <span className="chip">Express</span>
-              <span className="chip">Stripe</span>
+              <span className="chip">HTML</span>
+              <span className="chip">CSS</span>
+              <span className="chip">Javascript</span>
             </div>
-            <h3 id="p3-title">Headless Commerce</h3>
+            <h3 id="p3-title">Trading Website Cryptex</h3>
             <p className="lead">
               Lightning-fast storefront with headless CMS, search, and
               server-side rendering.
             </p>
             <div className="hero-cta">
               <a className="btn" href="#">View more</a>
-              <a className="btn secondary" href="#">Case Study</a>
+              <a className="btn secondary" href="https://trading-website-cryptex.vercel.app/">Go to Project</a>
             </div>
           </article>
 

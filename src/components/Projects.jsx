@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react';
+import Project1 from '../assets/Image/Project1.png';
+import Project2 from '../assets/Image/Project2.png';
+import Project3 from '../assets/Image/Project 3.png';
 
 function Projects() {
   const [isMobile, setIsMobile] = useState(false);
@@ -35,7 +38,7 @@ function Projects() {
             <div className="thumb">
               <img
                 loading="lazy"
-                src="../src/assets/Image/Project1.png"
+                src={Project1}
                 alt="Online Shoping Website"
               />
             </div>
@@ -60,7 +63,7 @@ function Projects() {
             <div className="thumb">
               <img
                 loading="lazy"
-                src="./src/assets/Image/Project2.png"
+                src={Project2}
                 alt="Team collaboration app preview"
               />
             </div>
@@ -85,7 +88,7 @@ function Projects() {
             <div className="thumb">
               <img
                 loading="lazy"
-                src="./src/assets/Image/Project 3.png"
+                src={Project3}
                 alt="E-commerce storefront preview"
               />
             </div>

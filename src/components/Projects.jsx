@@ -49,8 +49,7 @@ function Projects() {
             </div>
             <h3 id="p1-title">Online Shoping Website</h3>
             <p className="lead">
-              End-to-end platform for subscription analytics: cohort analysis,
-              MRR trends, churn insights.
+              This online shopping website is a modern, responsive platform designed using HTML, CSS, and JavaScript to deliver a smooth and engaging user experience. It features a clean layout, intuitive navigation, and dynamic functionality such as product filtering, interactive buttons, and real-time search.
             </p>
             <div className="hero-cta">
               <a className="btn" href="#">View more</a>
@@ -74,8 +73,7 @@ function Projects() {
             </div>
             <h3 id="p2-title">Classroom Scheduler</h3>
             <p className="lead">
-              A realtime whiteboard and notes app with presence, comments, and
-              role-based access.
+              Our Classroom Scheduler is a smart and efficient web-based tool designed using HTML, CSS, and JavaScript to simplify timetable management for schools, colleges, and coaching centers. The interface is clean and user-friendly, allowing administrators or faculty to assign subjects, teachers, and classrooms with ease.
             </p>
             <div className="hero-cta">
               <a className="btn" href="#">View more</a>
@@ -99,8 +97,7 @@ function Projects() {
             </div>
             <h3 id="p3-title">Trading Website Cryptex</h3>
             <p className="lead">
-              Lightning-fast storefront with headless CMS, search, and
-              server-side rendering.
+              Cryptex is a sleek and responsive cryptocurrency trading platform developed using HTML, CSS, and JavaScript. Designed to simulate real-time trading experiences, it offers users a clean interface to view market trends, track crypto prices, and manage virtual portfolios.JavaScript key functionalities live price updates, buy/sell.
             </p>
             <div className="hero-cta">
               <a className="btn" href="#">View more</a>

@@ -35,7 +35,7 @@ function Projects() {
             <div className="thumb">
               <img
                 loading="lazy"
-                src="./src/assets/Image/Project1.png"
+                src="../src/assets/Image/Project1.png"
                 alt="Online Shoping Website"
               />
             </div>

@@ -49,7 +49,7 @@ function Projects() {
             </div>
             <h3 id="p1-title">Online Shoping Website</h3>
             <p className="lead">
-              This online shopping website is a modern, responsive platform designed using HTML, CSS, and JavaScript to deliver a smooth and engaging user experience.
+              This online shopping website is a modern, responsive platform designed using HTML, CSS, and JavaScript to deliver a smooth and engaging user experience. It features a clean layout, intuitive navigation, and dynamic functionality such as product filtering, interactive buttons, and real-time search.
             </p>
             <div className="hero-cta">
               <a className="btn" href="#">View more</a>
@@ -73,7 +73,7 @@ function Projects() {
             </div>
             <h3 id="p2-title">Classroom Scheduler</h3>
             <p className="lead">
-              Our Classroom Scheduler is a smart and efficient web-based tool designed using HTML, CSS, and JavaScript to simplify timetable management for schools, colleges, and coaching centers.
+              Our Classroom Scheduler is a smart and efficient web-based tool designed using HTML, CSS, and JavaScript to simplify timetable management for schools, colleges, and coaching centers.The interface is clean and user-friendly, allowing administrators or faculty to assign subjects, teachers, and classrooms with ease.
             </p>
             <div className="hero-cta">
               <a className="btn" href="#">View more</a>
@@ -97,7 +97,7 @@ function Projects() {
             </div>
             <h3 id="p3-title">Trading Website Cryptex</h3>
             <p className="lead">
-              Cryptex is a sleek and responsive cryptocurrency trading platform developed using HTML, CSS, and JavaScript. Designed to simulate real-time trading experiences, it offers users a clean interface to view market trends, track crypto prices.
+              Cryptex is a sleek and responsive cryptocurrency trading platform developed using HTML, CSS, and JavaScript. Designed to simulate real-time trading experiences, it offers users a clean interface to view market trends, track crypto prices.JavaScript powers key functionalities like live price updates, buy/sell simulations, and user alerts
             </p>
             <div className="hero-cta">
               <a className="btn" href="#">View more</a>

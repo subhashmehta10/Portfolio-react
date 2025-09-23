@@ -1,5 +1,5 @@
 import React from 'react';
-import IMG from "../assets/IMG.jpg";
+import IMG from "../assets/Image/IMG.jpg";
 
 // GitHub, LinkedIn, aur Twitter ke liye SVG Icons
 // Aap chahein to 'react-icons' jaisi library ka istemal bhi kar sakte hain

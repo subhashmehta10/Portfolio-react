@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Image from '../assets/Image/Project1.png';
 
 function Projects() {
   const [isMobile, setIsMobile] = useState(false);
@@ -35,7 +36,7 @@ function Projects() {
             <div className="thumb">
               <img
                 loading="lazy"
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop"
+                src="{Project1}"
                 alt="Dashboard app preview"
               />
             </div>

@@ -139,7 +139,7 @@ nav a:hover, nav a.active {
 /* Hero */
 .hero { 
 position: relative; 
-padding: 10rem 0 5rem; 
+padding: 6.5rem 0 5rem; 
 }
 .hero-grid { 
 display:grid; 
@@ -176,7 +176,7 @@ border:1px solid #ffffff24;
 border-radius: var(--radius); 
 background: linear-gradient(180deg, #0b1020d9, #0b1020bf);
 box-shadow: var(--shadow); 
-padding:1.5rem; /* Padding badhai gayi hai */
+padding:1.4rem; /* Padding badhai gayi hai */
 display:flex; /* Flexbox use kiya gaya hai */
 flex-direction: column; /* Items ko upar se neeche stack karne ke liye */
 gap:1.7rem; /* Cards ke beech ka gap */
@@ -248,6 +248,7 @@ section {
 }
 .projects { 
   grid-template-columns: repeat(18, 1fr); 
+  
 }
 .contact-grid { 
   grid-template-columns: 1.2fr .8fr; 
@@ -259,7 +260,7 @@ section {
   background: linear-gradient(180deg, rgba(255,255,255,.05), transparent); 
   padding: 0.9rem; 
   transition: transform .15s ease, border .2s ease, background .2s ease; 
-  box-shadow: var(--shadow); 
+  box-shadow: var(--shadow);
 }
 .card:hover { 
   transform: translateY(-3px);
@@ -268,7 +269,7 @@ section {
 .project { 
   grid-column: span 6; 
   display:grid; 
-  gap:.4rem; 
+  gap:.4rem;
   
 }
 .project .thumb { 

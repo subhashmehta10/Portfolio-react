@@ -105,7 +105,6 @@ function Projects() {
             </div>
           </article>
 
-          {/* Project 4 */}
 
         </div>
       </div>

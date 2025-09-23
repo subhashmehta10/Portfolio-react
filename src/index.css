@@ -139,7 +139,7 @@ nav a:hover, nav a.active {
 /* Hero */
 .hero { 
 position: relative; 
-padding: 8rem 0 5rem; 
+padding: 10rem 0 5rem; 
 }
 .hero-grid { 
 display:grid; 
@@ -179,7 +179,7 @@ box-shadow: var(--shadow);
 padding:1.5rem; /* Padding badhai gayi hai */
 display:flex; /* Flexbox use kiya gaya hai */
 flex-direction: column; /* Items ko upar se neeche stack karne ke liye */
-gap:1.5rem; /* Cards ke beech ka gap */
+gap:1.7rem; /* Cards ke beech ka gap */
 }
 
 
@@ -217,6 +217,7 @@ color: var(--brand); /* Hover karne par brand color */
 }
 .hero-card {
     order: -1; /* Mobile par card ko upar dikhane ke liye */
+    margin-top: 15px;
 }
 h1 {
     font-size: 2.5rem;

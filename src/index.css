@@ -37,6 +37,7 @@
   border-color: rgba(2,6,23,.08);
   background: linear-gradient(180deg, rgba(2,6,23,.04), rgba(2,6,23,.02));
 }
+[data-theme="light"] .card:hover { box-shadow: 0 18px 40px rgba(2,6,23,.12); }
 [data-theme="light"] .skill {
   border-color: rgba(2,6,23,.08);
   background: rgba(2,6,23,.04);
@@ -125,6 +126,7 @@
   border-color: rgba(2,6,23,.16);
   background: transparent;
 }
+[data-theme="light"] .btn:hover { box-shadow: 0 18px 40px rgba(2,6,23,.18); }
 .chip { 
   display:inline-flex; 
   align-items:center; 
@@ -467,6 +469,11 @@ footer { padding: 2.5rem 0 3.5rem; color: var(--muted); }
   pointer-events: none;
   z-index: 5;
 }
+[data-theme="light"] .star {
+  background: var(--brand);
+  box-shadow: 0 0 8px color-mix(in oklab, var(--brand) 60%, transparent),
+              0 0 16px color-mix(in oklab, var(--brand-2) 40%, transparent);
+}
 
 /* Utilities */
 .flex { display:flex; }
@@ -628,6 +635,7 @@ footer { padding: 2.5rem 0 3.5rem; color: var(--muted); }
   background: #ffffff;
   border:1px solid rgba(2,6,23,.08);
 }
+[data-theme="light"] .service-card:hover { box-shadow: 0 18px 40px rgba(2,6,23,.14); }
 .service-icon {
  font-size: 3rem;
  margin-bottom: 1rem;
@@ -679,6 +687,7 @@ footer { padding: 2.5rem 0 3.5rem; color: var(--muted); }
   background: #ffffff;
   border:1px solid rgba(2,6,23,.08);
 }
+[data-theme="light"] .work-step:hover { box-shadow: 0 18px 40px rgba(2,6,23,.14); }
 .work-step:hover { 
   transform: translateY(-3px); 
   border-color: #ffffff3d; 

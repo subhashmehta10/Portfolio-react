@@ -74,12 +74,19 @@ export default function App() {
           z-index: 9999;
           transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, transform 0.1s ease-out;
         }
+        /* Light theme me darker shadow use karein taki white bg par visible rahe */
+        [data-theme="light"] .custom-cursor {
+          background: radial-gradient(circle, rgba(2, 6, 23, 0.16), transparent 55%);
+        }
         
         /* Jab cursor kisi link ya button par hover karega */
         .custom-cursor.hovered {
           width: 50px;
           height: 50px;
           background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 40%);
+        }
+        [data-theme="light"] .custom-cursor.hovered {
+          background: radial-gradient(circle, rgba(2, 6, 23, 0.14), transparent 42%);
         }
 
       `}</style>

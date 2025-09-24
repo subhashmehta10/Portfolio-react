@@ -1,6 +1,27 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function Header() {
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem("theme");
+    return saved || "dark";
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    const root = document.documentElement;
+    root.classList.add("theme-anim");
+    window.clearTimeout(window.__themeAnimTimeout);
+    window.__themeAnimTimeout = window.setTimeout(() => {
+      root.classList.remove("theme-anim");
+    }, 700);
+    setTheme((t) => (t === "dark" ? "light" : "dark"));
+  };
+
   useEffect(() => {
     const header = document.querySelector("header[aria-label='Primary']");
     const menuBtn = header?.querySelector(".menu-btn");
@@ -75,6 +96,9 @@ function Header() {
         <a className="brand" href="#top" aria-label="Homepage">
           <span>Portfolio.</span>
         </a>
+        <button className="theme-btn theme-btn--floating" onClick={toggleTheme} aria-label="Toggle theme">
+          {theme === "dark" ? "☀️ Light" : "🌙 Dark"}
+        </button>
         <button className="menu-btn" aria-expanded="false" aria-controls="menu">
           ☰ Menu
         </button>
@@ -85,6 +109,11 @@ function Header() {
             <li><a href="#skills">Skills</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li className="theme-menu-item">
+              <button className="theme-btn" onClick={toggleTheme} aria-label="Toggle theme in menu">
+                {theme === "dark" ? "☀️ Light" : "🌙 Dark"}
+              </button>
+            </li>
           </ul>
         </nav>
       </div>

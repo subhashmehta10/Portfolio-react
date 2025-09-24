@@ -109,6 +109,11 @@ function Header() {
             <li><a href="#skills">Skills</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li className="profile-icon-item">
+              <a href="#profile" className="profile-icon interactive-element" aria-label="Profile">
+                👤
+              </a>
+            </li>
             <li className="theme-menu-item">
               <button className="theme-btn" onClick={toggleTheme} aria-label="Toggle theme in menu">
                 {theme === "dark" ? "☀️ Light" : "🌙 Dark"}

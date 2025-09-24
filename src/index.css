@@ -212,6 +212,41 @@ nav a:hover, nav a.active {
 }
 .theme-btn--floating { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); z-index: 55; }
 
+/* Profile icon styling */
+.profile-icon {
+  font-size: 1.2rem;
+  padding: .5rem .75rem;
+  border-radius: 10px;
+  color: var(--muted);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+}
+
+.profile-icon:hover {
+  color: var(--text);
+  background: #ffffff10;
+  transform: scale(1.1);
+}
+
+.profile-icon-item {
+  display: flex;
+  align-items: center;
+}
+
+/* Light theme profile icon */
+[data-theme="light"] .profile-icon {
+  color: var(--muted);
+}
+
+[data-theme="light"] .profile-icon:hover {
+  color: var(--text);
+  background: rgba(2,6,23,.06);
+}
+
 /* Hero */
 .hero { 
 position: relative; 

@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { MessageContext } from "../context/MessageContext.jsx";
 
 function Contact() {
   const [status, setStatus] = useState("");
+  const { addMessage } = useContext(MessageContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,10 +23,12 @@ function Contact() {
       return;
     }
 
-	// Backend removed: show instant success and reset
-	setStatus("Thanks! Your message has been successfully sent.");
-	form.reset();
-	setTimeout(() => setStatus(""), 4000);
+    // Add message to global context
+    addMessage({ sender: name, email, content: message });
+
+    setStatus("Thanks! Your message has been successfully sent.");
+    form.reset();
+    setTimeout(() => setStatus(""), 4000);
   };
 
   return (

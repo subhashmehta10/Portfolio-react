@@ -77,23 +77,7 @@ app.post("/api/contact", async (req, res) => {
 });
 
 
-// In-memory message store (replace with DB for production)
-const messages = [];
-
-// Save message from contact form
-app.post("/api/message", (req, res) => {
-  const { sender, email, content } = req.body || {};
-  if (!sender || !email || !content) {
-    return res.status(400).json({ ok: false, error: "Missing required fields" });
-  }
-  messages.push({ sender, email, content, date: new Date().toISOString() });
-  res.json({ ok: true });
-});
-
-// Get all messages
-app.get("/api/messages", (_req, res) => {
-  res.json({ ok: true, messages });
-});
+// ...existing code...
 
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);

@@ -21,23 +21,16 @@ function Contact() {
       return;
     }
 
-    // Send message to backend API
+    // Save message to localStorage
     try {
-      const res = await fetch("/api/message", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ sender: name, email, content: message })
-      });
-      const result = await res.json();
-      if (result.ok) {
-        setStatus("Thanks! Your message has been successfully sent.");
-        form.reset();
-        setTimeout(() => setStatus(""), 4000);
-      } else {
-        setStatus("Failed to send message.");
-      }
+      const messages = JSON.parse(localStorage.getItem("messages") || "[]");
+      messages.push({ sender: name, email, content: message, date: new Date().toISOString() });
+      localStorage.setItem("messages", JSON.stringify(messages));
+      setStatus("Thanks! Your message has been successfully sent.");
+      form.reset();
+      setTimeout(() => setStatus(""), 4000);
     } catch {
-      setStatus("Server error. Try again later.");
+      setStatus("Failed to save message.");
     }
   };
 

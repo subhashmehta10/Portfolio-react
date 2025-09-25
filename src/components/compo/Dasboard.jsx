@@ -23,13 +23,9 @@ const Dashboard = () => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    fetch("/api/messages")
-      .then(res => res.json())
-      .then(data => {
-        if (data.ok && Array.isArray(data.messages)) {
-          setMessages(data.messages);
-        }
-      });
+    // Fetch messages from localStorage (only for current device)
+    const messages = JSON.parse(localStorage.getItem("messages") || "[]");
+    setMessages(messages);
   }, [activeSection]);
 
   // Project state

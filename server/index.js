@@ -82,16 +82,18 @@ app.listen(PORT, () => {
 
 
 // Serve static files and handle client-side routing fallback
+
 import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const clientBuildPath = path.join(__dirname, "..", "dist");
+const clientBuildPath = path.resolve(__dirname, "..", "dist");
 
+// Serve static files (after API routes)
 app.use(express.static(clientBuildPath));
 
-// Catch-all route for SPA (React Router)
-app.get("/*", (req, res) => {
+// Catch-all route for SPA (React Router) - after static and API routes
+app.get("*", (req, res) => {
   res.sendFile(path.join(clientBuildPath, "index.html"));
 });
 

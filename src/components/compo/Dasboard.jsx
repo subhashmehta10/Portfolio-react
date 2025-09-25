@@ -17,6 +17,7 @@ const Dashboard = () => {
 
   // Section state
   const [activeSection, setActiveSection] = useState("profile");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // Message state
   const [selectedMessage, setSelectedMessage] = useState(null);
@@ -92,36 +93,40 @@ const Dashboard = () => {
   };
 
   return (
-    <div className={`dashboard ${darkMode ? "dark-mode" : ""}`}>
-      <div className="sidebar">
+    <div className={`dashboard ${darkMode ? "dark-mode" : ""}`}> 
+      {/* Mobile menu button */}
+      <button className="dashboard-menu-btn" onClick={() => setMenuOpen(!menuOpen)}>
+        ☰ Menu
+      </button>
+      <div className={`sidebar${menuOpen ? " open" : ""}`}>
         <h2>Dashboard</h2>
         <a 
           className={activeSection === "profile" ? "active" : ""} 
-          onClick={() => setActiveSection("profile")}
+          onClick={() => { setActiveSection("profile"); setMenuOpen(false); }}
         >
           Profile
         </a>
         <a 
           className={activeSection === "messages" ? "active" : ""} 
-          onClick={() => setActiveSection("messages")}
+          onClick={() => { setActiveSection("messages"); setMenuOpen(false); }}
         >
           Messages
         </a>
         <a 
           className={activeSection === "projects" ? "active" : ""} 
-          onClick={() => setActiveSection("projects")}
+          onClick={() => { setActiveSection("projects"); setMenuOpen(false); }}
         >
           Projects
         </a>
         <a 
           className={activeSection === "settings" ? "active" : ""} 
-          onClick={() => setActiveSection("settings")}
+          onClick={() => { setActiveSection("settings"); setMenuOpen(false); }}
         >
           Settings
         </a>
         <a 
           className={activeSection === "logout" ? "active" : ""} 
-          onClick={() => setActiveSection("logout")}
+          onClick={() => { setActiveSection("logout"); setMenuOpen(false); }}
         >
           Logout
         </a>
@@ -254,18 +259,23 @@ const Dashboard = () => {
         {activeSection === "messages" && (
           <div className="messages card">
             <h3>Inbox</h3>
-            {messages.map((msg, idx) => (
-              <div
-                key={idx}
-                className="message-item"
-                onClick={() => {
-                  setSelectedMessage(msg);
-                  setActiveSection("message-detail");
-                }}
-              >
-                <strong>{msg.sender}</strong> <span style={{color:'#888'}}>&lt;{msg.email}&gt;</span>: {msg.content}
-              </div>
-            ))}
+            {messages.map((msg, idx) => {
+              const dateObj = msg.date ? new Date(msg.date) : null;
+              const formatted = dateObj ? `${dateObj.toLocaleDateString()} ${dateObj.toLocaleTimeString()}` : "";
+              return (
+                <div
+                  key={idx}
+                  className="message-item"
+                  onClick={() => {
+                    setSelectedMessage(msg);
+                    setActiveSection("message-detail");
+                  }}
+                >
+                  <strong>{msg.sender}</strong> <span style={{color:'#888'}}>&lt;{msg.email}&gt;</span>: {msg.content}
+                  <div style={{fontSize:'0.85rem',color:'#aaa',marginTop:'2px'}}>Received: {formatted}</div>
+                </div>
+              );
+            })}
           </div>
         )}
 

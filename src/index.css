@@ -200,12 +200,17 @@ nav a:hover, nav a.active {
 
 /* Theme toggle button */
 .theme-btn {
+  font-size: 12px;
   display:inline-flex;
   align-items:center;
   gap:.5rem;
   padding:.5rem .75rem;
   border-radius: 10px;
+<<<<<<< HEAD
   border:1px solid #32191925;
+=======
+  border:1px solid #2b121225;
+>>>>>>> f2a08b32b925d7fa3f15c66595f1fb92402733b4
   background:#ffffff0f;
   color: var(--text);
   cursor: pointer;
@@ -218,10 +223,20 @@ nav a:hover, nav a.active {
   transform: translateY(-50%); 
   z-index: 55; 
 }
+<<<<<<< HEAD
+=======
+.theme-btn--floating { 
+  position: absolute; 
+  right: 45px; 
+  top: 50%; 
+  transform: translateY(-50%); 
+  z-index: 55; 
+}
+>>>>>>> f2a08b32b925d7fa3f15c66595f1fb92402733b4
 
 /* Profile icon styling */
 .profile-icon {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   padding: .5rem .75rem;
   border-radius: 10px;
   color: var(--muted);

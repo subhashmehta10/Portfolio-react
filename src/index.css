@@ -291,6 +291,7 @@ padding:1.4rem; /* Padding badhai gayi hai */
 display:flex; /* Flexbox use kiya gaya hai */
 flex-direction: column; /* Items ko upar se neeche stack karne ke liye */
 gap:1.7rem; /* Cards ke beech ka gap */
+margin-top: 25px;
 }
 
 

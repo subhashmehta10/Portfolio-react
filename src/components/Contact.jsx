@@ -1,9 +1,7 @@
-import { useState, useContext } from "react";
-import { MessageContext } from "../context/MessageContext.jsx";
+import { useState } from "react";
 
 function Contact() {
   const [status, setStatus] = useState("");
-  const { addMessage } = useContext(MessageContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,12 +21,24 @@ function Contact() {
       return;
     }
 
-    // Add message to global context
-    addMessage({ sender: name, email, content: message });
-
-    setStatus("Thanks! Your message has been successfully sent.");
-    form.reset();
-    setTimeout(() => setStatus(""), 4000);
+    // Send message to backend API
+    try {
+      const res = await fetch("/api/message", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sender: name, email, content: message })
+      });
+      const result = await res.json();
+      if (result.ok) {
+        setStatus("Thanks! Your message has been successfully sent.");
+        form.reset();
+        setTimeout(() => setStatus(""), 4000);
+      } else {
+        setStatus("Failed to send message.");
+      }
+    } catch {
+      setStatus("Server error. Try again later.");
+    }
   };
 
   return (

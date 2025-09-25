@@ -1,5 +1,4 @@
-import React, { useState, useContext } from "react";
-import { MessageContext } from "../../context/MessageContext.jsx";
+import React, { useState, useEffect } from "react";
 import "./Dasboard.css"; // We'll put your CSS here
 
 const Dashboard = () => {
@@ -21,7 +20,17 @@ const Dashboard = () => {
 
   // Message state
   const [selectedMessage, setSelectedMessage] = useState(null);
-  const { messages } = useContext(MessageContext);
+  const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/messages")
+      .then(res => res.json())
+      .then(data => {
+        if (data.ok && Array.isArray(data.messages)) {
+          setMessages(data.messages);
+        }
+      });
+  }, [activeSection]);
 
   // Project state
   const [projects, setProjects] = useState([]);

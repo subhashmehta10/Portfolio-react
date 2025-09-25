@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Dashboard from "./components/compo/Dasboard";
 import Cursor from "./components/Cursor"
 import Header from "./components/Header";
 import Hero from "./components/Hero";
@@ -44,6 +45,7 @@ function App() {
         />
   <Route path="/login" element={<Login />} />
   <Route path="/register" element={<Register />} />
+  <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   );

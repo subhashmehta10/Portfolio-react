@@ -1,29 +1,81 @@
-body { margin:0; font-family:Arial,sans-serif; background-color:#f4f6f8; transition: background 0.3s, color 0.3s; }
-.dark-mode { background-color:#1e1e1e; color:#f4f4f4; }
-.dashboard { display:flex; height:100vh; }
-.sidebar { width:250px; background:#2c3e50; color:#ecf0f1; display:flex; flex-direction:column; padding:20px; }
-.sidebar h2 { text-align:center; margin-bottom:30px; }
-.sidebar a { color:#ecf0f1; text-decoration:none; margin:15px 0; display:block; padding:10px; border-radius:8px; cursor:pointer; }
-.sidebar a:hover { background:#34495e; }
-.main-content { flex:1; padding:20px; overflow-y:auto; }
-.card, .messages, .message-detail, .settings, .logout-screen, .projects, .project-detail { background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15); max-width:600px; margin:auto; }
-.dark-mode .card, .dark-mode .messages, .dark-mode .message-detail, .dark-mode .settings, .dark-mode .logout-screen, .dark-mode .projects, .dark-mode .project-detail { background:#2b2b2b; color:#f4f4f4; }
-.profile-card { text-align:center; }
-.profile-card img { width:150px; height:200px; border-radius:8px; object-fit:cover; }
-.profile-card h3 { margin:15px 0 5px; }
-.profile-card p { color:#7f8c8d; }
-.stats { display:flex; justify-content:space-around; margin-top:20px; }
-.stat { text-align:center; cursor:pointer; }
-.stat h4 { margin:5px 0; color:#2c3e50; }
-.button { margin-top:20px; padding:10px 20px; background:#3498db; color:#fff; border:none; border-radius:8px; cursor:pointer; }
-.button:hover { background:#2980b9; }
-/* Removed display:none to allow sections to show based on activeSection state */
-.message-item { padding:10px; border-bottom:1px solid #ddd; cursor:pointer; }
-.message-item:last-child { border-bottom:none; }
-.message-item strong { color:#2c3e50; }
-.back-btn { margin-bottom:15px; padding:8px 15px; background:#3498db; color:#fff; border:none; border-radius:6px; cursor:pointer; }
-/* Form styling */
-input, textarea, button {
+.dashboard label,
+.dashboard h2,
+.dashboard h3,
+.dashboard p,
+.dashboard .stat h4,
+.dashboard .profile-card p {
+  color: #d3d8e1;
+}
+/* Scope all styles to .dashboard */
+.dashboard {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(1200px 700px at 10% -10%, rgba(139,92,246,.18), transparent 60%),
+              radial-gradient(1000px 600px at 90% 10%, rgba(6,182,212,.15), transparent 60%),
+              var(--bg);
+  background-repeat: no-repeat;
+  background-size: 180% 180%, 180% 180%, auto;
+  background-position: 0% 0%, 100% 0%, 0 0;
+  background-attachment: fixed;
+  animation: bg-move 26s ease-in-out infinite alternate;
+  transition: background-color .6s ease, color .6s ease, background .6s ease;
+}
+.dashboard.dark-mode { background-color:#1e1e1e; color:#f4f4f4; }
+.dashboard .sidebar { width:250px; background:#2c3e50; color:#ecf0f1; display:flex; flex-direction:column; padding:20px; }
+.dashboard .sidebar h2 { text-align:center; margin-bottom:30px; }
+.dashboard .sidebar a { color:#ecf0f1; text-decoration:none; margin:15px 0; display:block; padding:10px; border-radius:8px; cursor:pointer; }
+.dashboard .sidebar a:hover { background:#34495e; }
+.dashboard .main-content { flex:1; padding:20px; overflow-y:auto; }
+.dashboard .card,
+.dashboard .messages,
+.dashboard .message-detail,
+.dashboard .settings,
+.dashboard .logout-screen,
+.dashboard .projects,
+.dashboard .project-detail {
+  background: var(--panel);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  max-width: 600px;
+  margin: auto;
+  color: var(--text);
+}
+.dashboard.dark-mode .card, .dashboard.dark-mode .messages, .dashboard.dark-mode .message-detail, .dashboard.dark-mode .settings, .dashboard.dark-mode .logout-screen, .dashboard.dark-mode .projects, .dashboard.dark-mode .project-detail { background:#2b2b2b; color:#f4f4f4; }
+.dashboard .profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.dashboard .profile-card img {
+  width: 150px;
+  height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+.dashboard .profile-card h3 { margin:15px 0 5px; }
+.dashboard .profile-card p { color:#7f8c8d; }
+.dashboard .stats {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 20px;
+}
+.dashboard .stat { text-align:center; cursor:pointer; }
+.dashboard .stat h4 { margin:5px 0; color:#2c3e50; }
+.dashboard .button { margin-top:20px; padding:10px 20px; background:#3498db; color:#fff; border:none; border-radius:8px; cursor:pointer; }
+.dashboard .button:hover { background:#2980b9; }
+.dashboard .message-item { padding:10px; border-bottom:1px solid #ddd; cursor:pointer; }
+.dashboard .message-item:last-child { border-bottom:none; }
+.dashboard .message-item strong { color:#2c3e50; }
+.dashboard .back-btn { margin-bottom:15px; padding:8px 15px; background:#3498db; color:#fff; border:none; border-radius:6px; cursor:pointer; }
+.dashboard input, .dashboard textarea, .dashboard button {
   width: 100%;
   padding: 10px;
   margin: 5px 0;
@@ -31,73 +83,60 @@ input, textarea, button {
   border-radius: 6px;
   font-size: 14px;
 }
-
-input:focus, textarea:focus {
+.dashboard input:focus, .dashboard textarea:focus {
   outline: none;
   border-color: #3498db;
   box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
 }
-
-button {
+.dashboard button {
   background: #3498db;
   color: white;
   border: none;
   cursor: pointer;
   font-weight: bold;
 }
-
-button:hover {
+.dashboard button:hover {
   background: #2980b9;
 }
-
-.update-btn {
+.dashboard .update-btn {
   background: #27ae60 !important;
   margin-top: 20px;
   font-size: 16px;
   padding: 12px 20px;
 }
-
-.update-btn:hover {
+.dashboard .update-btn:hover {
   background: #1e8449 !important;
 }
-
-label {
+.dashboard label {
   display: block;
   margin-top: 15px;
   margin-bottom: 5px;
   font-weight: bold;
-  color: #2c3e50;
+  color: #eceff1;
 }
-
-.dark-mode label {
+.dashboard.dark-mode label {
   color: #ecf0f1;
 }
-
-.dark-mode input, .dark-mode textarea {
+.dashboard.dark-mode input, .dashboard.dark-mode textarea {
   background: #3a3a3a;
   border-color: #555;
   color: #ecf0f1;
 }
-
-.dark-mode input:focus, .dark-mode textarea:focus {
+.dashboard.dark-mode input:focus, .dashboard.dark-mode textarea:focus {
   border-color: #3498db;
 }
-
-/* Project cards */
-.project-card {
+.dashboard .project-card {
   margin: 10px 0;
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 8px;
   background: #f9f9f9;
 }
-
-.dark-mode .project-card {
+.dashboard.dark-mode .project-card {
   background: #3a3a3a;
   border-color: #555;
 }
-
-.project-card img {
+.dashboard .project-card img {
   width: 100%;
   height: 150px;
   object-fit: cover;

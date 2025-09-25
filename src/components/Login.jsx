@@ -1,27 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import google from '../assets/google.png';
 import facebook from '../assets/facebook.png';
 import github from '../assets/github.png';
 
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (email === "kumarmehta172@gmail.com" && password === "Subhash@1234") {
+      setError("");
+      navigate("/dashboard");
+    } else {
+      setError("Invalid email or password");
+    }
+  };
+
   return (
     <div className="login-bg-wrapper">
       <div className="login-container">
-        <form className="login-form">
+        <form className="login-form" onSubmit={handleLogin}>
           <Link to="/" className="back-home-btn" style={{marginBottom: "0.7rem", display: "inline-block", textAlign: "left", color: "#8b5cf6", fontWeight: 600}}>
             ← Return to Main Page
           </Link>
           <h2>Login</h2>
           <div className="input-group">
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" required />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              required
+            />
           </div>
           <div className="input-group">
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" name="password" required />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              required
+            />
           </div>
+          {error && (
+            <div style={{ color: "#ff4d4f", textAlign: "center", marginBottom: ".5rem" }}>{error}</div>
+          )}
           <div className="forgot-password">
             <a href="#" onClick={e => { e.preventDefault(); alert('Password reset link sent to your email!'); }}>
               Forgot Password?

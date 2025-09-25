@@ -206,11 +206,7 @@ nav a:hover, nav a.active {
   gap:.5rem;
   padding:.5rem .75rem;
   border-radius: 10px;
-<<<<<<< HEAD
   border:1px solid #32191925;
-=======
-  border:1px solid #2b121225;
->>>>>>> f2a08b32b925d7fa3f15c66595f1fb92402733b4
   background:#ffffff0f;
   color: var(--text);
   cursor: pointer;

@@ -1,4 +1,7 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./components/Login";
+import Register from "./components/Register";
 import Cursor from "./components/Cursor"
 import Header from "./components/Header";
 import Hero from "./components/Hero";
@@ -16,24 +19,33 @@ import ChatWidget from "./components/ChatWidget";
 
 
 function App() {
-
   return (
-    <>
-
-      <Cursor/>
-      <Header/>
-      <Hero/>
-      <Projects/>
-      <Skills/>
-      <Services/>
-      <WorkProcess/>
-      <Education/>
-      <Experience/>
-      <About/>
-      <Contact/>
-      <Footer/>
-      <ChatWidget/>
-    </>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Cursor/>
+              <Header/>
+              <Hero/>
+              <Projects/>
+              <Skills/>
+              <Services/>
+              <WorkProcess/>
+              <Education/>
+              <Experience/>
+              <About/>
+              <Contact/>
+              <Footer/>
+              <ChatWidget/>
+            </>
+          }
+        />
+  <Route path="/login" element={<Login />} />
+  <Route path="/register" element={<Register />} />
+      </Routes>
+    </Router>
   );
 }
 

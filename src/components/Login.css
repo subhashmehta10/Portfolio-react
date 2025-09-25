@@ -1,0 +1,161 @@
+.social-login-options {
+	margin-top: 1.2rem;
+	margin-bottom: 0.5rem;
+}
+.social-btn-group {
+	display: flex;
+	flex-direction: row;
+	gap: 1.1rem;
+	align-items: center;
+	justify-content: center;
+	margin-top: 0.5rem;
+}
+.social-btn {
+	width: 48px;
+	height: 48px;
+	padding: 0;
+	border-radius: 50%;
+	border: none;
+	background: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: box-shadow 0.2s, transform 0.2s;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.social-btn.google {
+	background: #fff;
+	border: 1px solid #e5e7eb;
+}
+.social-btn.github {
+	background: white;
+}
+.social-btn.facebook {
+	background: #1877f3;
+}
+.social-btn:hover {
+	box-shadow: 0 4px 16px rgba(0,0,0,0.14);
+	transform: scale(1.12);
+}
+.social-icon {
+	width: 28px;
+	height: 28px;
+	object-fit: contain;
+}
+.register-link {
+	text-align: center;
+	margin-top: 1rem;
+	font-size: 0.98rem;
+	color: #e5e7eb;
+}
+.register-link a {
+	color: #8b5cf6;
+	text-decoration: underline;
+	cursor: pointer;
+	transition: color 0.2s;
+}
+.register-link a:hover {
+	color: #6d28d9;
+}
+
+.forgot-password {
+	text-align: right;
+	margin-bottom: 0.5rem;
+}
+.forgot-password a {
+	color: #8b5cf6;
+	text-decoration: underline;
+	font-size: 0.98rem;
+	cursor: pointer;
+	transition: color 0.2s;
+}
+.forgot-password a:hover {
+	color: #6d28d9;
+}
+
+/* Wrapper for background, matches main page */
+.login-bg-wrapper {
+	min-height: 100vh;
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	background: radial-gradient(1200px 700px at 10% -10%, rgba(139,92,246,.18), transparent 60%),
+							radial-gradient(1000px 600px at 90% 10%, rgba(6,182,212,.15), transparent 60%),
+							#0b1020;
+	background-repeat: no-repeat;
+	background-size: 180% 180%, 180% 180%, auto;
+	background-position: 0% 0%, 100% 0%, 0 0;
+	background-attachment: fixed;
+	animation: bg-move 26s ease-in-out infinite alternate;
+	transition: background-color .6s ease, color .6s ease, background .6s ease;
+}
+
+@keyframes bg-move {
+	0% { background-position: 0% 0%, 100% 0%, 0 0; }
+	50% { background-position: 40% 40%, 60% 40%, 0 0; }
+	100% { background-position: 100% 100%, 0% 100%, 0 0; }
+}
+
+.login-container {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.login-form {
+	background: rgba(15, 23, 42, 0.92); /* dark panel */
+	color: #fff;
+	padding: 2rem 2.5rem;
+	border-radius: 12px;
+	box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+	width: 400px;
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+	border: 1px solid #ffffff1a;
+}
+
+.login-form h2 {
+	margin-bottom: 1rem;
+	color: #fff;
+	text-align: center;
+}
+
+.input-group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+}
+
+.input-group label {
+	font-size: 1rem;
+	color: #e5e7eb;
+}
+
+.input-group input {
+	padding: 0.6rem;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	font-size: 1rem;
+	background: #0f172a;
+	color: #fff;
+}
+
+.login-btn {
+	padding: 0.7rem;
+	background: #8b5cf6;
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+
+.login-btn:hover {
+	background: #6d28d9;
+}

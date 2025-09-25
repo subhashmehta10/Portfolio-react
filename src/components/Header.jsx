@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [theme, setTheme] = useState(() => {
@@ -110,9 +111,9 @@ function Header() {
             <li><a href="#experience">Experience</a></li>
             <li><a href="#contact">Contact</a></li>
             <li className="profile-icon-item">
-              <a href="#profile" className="profile-icon interactive-element" aria-label="Profile">
+              <Link to="/login" className="profile-icon interactive-element" aria-label="Profile">
                 👤
-              </a>
+              </Link>
             </li>
             <li className="theme-menu-item">
               <button className="theme-btn" onClick={toggleTheme} aria-label="Toggle theme in menu">

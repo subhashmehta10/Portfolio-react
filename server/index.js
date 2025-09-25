@@ -81,4 +81,19 @@ app.listen(PORT, () => {
 });
 
 
+// Serve static files and handle client-side routing fallback
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const clientBuildPath = path.join(__dirname, "..", "dist");
+
+app.use(express.static(clientBuildPath));
+
+// Catch-all route for SPA (React Router)
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(clientBuildPath, "index.html"));
+});
+
+
 

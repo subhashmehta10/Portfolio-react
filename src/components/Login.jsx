@@ -10,6 +10,9 @@ function Login() {
     <div className="login-bg-wrapper">
       <div className="login-container">
         <form className="login-form">
+          <Link to="/" className="back-home-btn" style={{marginBottom: "0.7rem", display: "inline-block", textAlign: "left", color: "#8b5cf6", fontWeight: 600}}>
+            ← Return to Main Page
+          </Link>
           <h2>Login</h2>
           <div className="input-group">
             <label htmlFor="email">Email</label>

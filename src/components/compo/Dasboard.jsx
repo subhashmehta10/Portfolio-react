@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Dasboard.css"; // We'll put your CSS here
 
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   // Profile state
   const [name, setName] = useState("Subhash Mehta");
   const [bio, setBio] = useState("Web Developer | Tech Enthusiast");
@@ -19,6 +21,8 @@ const Dashboard = () => {
   // Section state
   const [activeSection, setActiveSection] = useState("profile");
   const [menuOpen, setMenuOpen] = useState(false);
+  // Registered users state
+  const [registeredUsers, setRegisteredUsers] = useState([]);
 
   // Message state
   const [selectedMessage, setSelectedMessage] = useState(null);
@@ -28,6 +32,9 @@ const Dashboard = () => {
     // Fetch messages from localStorage (only for current device)
     const messages = JSON.parse(localStorage.getItem("messages") || "[]");
     setMessages(messages);
+    // Fetch registered users
+    const users = JSON.parse(localStorage.getItem("registeredUsers") || "[]");
+    setRegisteredUsers(users);
   }, [activeSection]);
 
   // Project state
@@ -108,6 +115,12 @@ const Dashboard = () => {
           Profile
         </a>
         <a 
+          className={activeSection === "register" ? "active" : ""} 
+          onClick={() => { setActiveSection("register"); setMenuOpen(false); }}
+        >
+          Register
+        </a>
+        <a 
           className={activeSection === "messages" ? "active" : ""} 
           onClick={() => { setActiveSection("messages"); setMenuOpen(false); }}
         >
@@ -127,7 +140,13 @@ const Dashboard = () => {
         </a>
         <a 
           className={activeSection === "logout" ? "active" : ""} 
-          onClick={() => { setActiveSection("logout"); setMenuOpen(false); }}
+          onClick={() => {
+            setMenuOpen(false);
+            if (window.confirm("Are you sure you want to logout?")) {
+              setActiveSection("logout");
+              navigate("/login");
+            }
+          }}
         >
           Logout
         </a>
@@ -182,6 +201,35 @@ const Dashboard = () => {
                 </div>
               ))}
             </div>
+          </div>
+        )}
+
+        {/* Register Section */}
+        {activeSection === "register" && (
+          <div className="register-list card">
+            <h3>Registered Users</h3>
+            {registeredUsers.length === 0 ? (
+              <div style={{color:'#aaa'}}>No users registered yet.</div>
+            ) : (
+              <table style={{width:'100%',borderCollapse:'collapse',background:'#181f2f',color:'#fff'}}>
+                <thead>
+                  <tr style={{background:'#232b3e'}}>
+                    <th style={{padding:'8px',border:'1px solid #2c3654'}}>Name</th>
+                    <th style={{padding:'8px',border:'1px solid #2c3654'}}>Email</th>
+                    <th style={{padding:'8px',border:'1px solid #2c3654'}}>Password</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {registeredUsers.map((user, idx) => (
+                    <tr key={idx}>
+                      <td style={{padding:'8px',border:'1px solid #2c3654'}}>{user.name}</td>
+                      <td style={{padding:'8px',border:'1px solid #2c3654'}}>{user.email}</td>
+                      <td style={{padding:'8px',border:'1px solid #2c3654'}}>{user.password}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
           </div>
         )}
 

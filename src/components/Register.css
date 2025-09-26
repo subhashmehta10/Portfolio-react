@@ -84,6 +84,33 @@
   color: #fff;
 }
 
+/* Password input with eye icon inside for Register page */
+.input-group input[type="password"],
+.input-group input[type="text"] {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background: #0f172a;
+  color: #fff;
+}
+
+.input-group span {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
 .register-btn {
   padding: 0.7rem;
   background: #8b5cf6;

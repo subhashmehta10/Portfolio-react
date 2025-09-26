@@ -8,6 +8,7 @@ import github from '../assets/github.png';
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -40,16 +41,34 @@ function Login() {
               required
             />
           </div>
-          <div className="input-group">
+          <div className="input-group" style={{position: "relative"}}>
             <label htmlFor="password">Password</label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               id="password"
               name="password"
               value={password}
               onChange={e => setPassword(e.target.value)}
               required
+              style={{paddingRight: "40px"}}
             />
+            <span
+              onClick={() => setShowPassword(!showPassword)}
+              style={{position: "absolute", right: "12px", top: "50%", transform: "translateY(-50%)", cursor: "pointer", width: "24px", height: "24px", display: "flex", alignItems: "center", justifyContent: "center"}}
+            >
+              {showPassword ? (
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 11C3.5 6 7.5 3 11 3C14.5 3 18.5 6 21 11C18.5 16 14.5 19 11 19C7.5 19 3.5 16 1 11Z" stroke="#8b5cf6" strokeWidth="2"/>
+                  <circle cx="11" cy="11" r="4" stroke="#8b5cf6" strokeWidth="2"/>
+                </svg>
+              ) : (
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 11C3.5 6 7.5 3 11 3C14.5 3 18.5 6 21 11C18.5 16 14.5 19 11 19C7.5 19 3.5 16 1 11Z" stroke="#8b5cf6" strokeWidth="2"/>
+                  <circle cx="11" cy="11" r="4" stroke="#8b5cf6" strokeWidth="2"/>
+                  <line x1="5" y1="17" x2="17" y2="5" stroke="#8b5cf6" strokeWidth="2"/>
+                </svg>
+              )}
+            </span>
           </div>
           {error && (
             <div style={{ color: "#ff4d4f", textAlign: "center", marginBottom: ".5rem" }}>{error}</div>

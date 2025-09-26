@@ -68,7 +68,7 @@ function Hero() {
           {/* --- Profile Photo --- */}
           <img 
             src={IMG} // <-- Apni photo ka path yahan daalein (e.g., '/images/profile.png')
-            alt="A photo of Your Name" className="profile-pic"
+            alt="Subhash Mehta" className="profile-pic"
           />
           <div className="card">
             <strong>Now</strong>

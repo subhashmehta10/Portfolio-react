@@ -3,7 +3,7 @@ import "./Dasboard.css"; // We'll put your CSS here
 
 const Dashboard = () => {
   // Profile state
-  const [name, setName] = useState("John Doe");
+  const [name, setName] = useState("Subhash Mehta");
   const [bio, setBio] = useState("Web Developer | Tech Enthusiast");
   const [photo, setPhoto] = useState("https://via.placeholder.com/150");
 

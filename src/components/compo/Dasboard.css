@@ -5,7 +5,7 @@
   top: 12px;
   left: 12px;
   z-index: 100;
-  background: #2c3e50;
+  background: #334155; /* Updated color */
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -30,7 +30,7 @@
     overflow-x: auto;
     justify-content: flex-start;
     align-items: flex-start;
-    background: #2c3e50;
+    background: #1e293b; /* EDITED: Matched with new sidebar color */
     position: fixed;
     top: 0;
     left: 0;
@@ -110,10 +110,40 @@
   transition: background-color .6s ease, color .6s ease, background .6s ease;
 }
 .dashboard.dark-mode { background-color:#1e1e1e; color:#f4f4f4; }
-.dashboard .sidebar { width:250px; background:#2c3e50; color:#ecf0f1; display:flex; flex-direction:column; padding:20px; }
+
+/* === EDITED SIDEBAR STYLES START === */
+.dashboard .sidebar { 
+  width:250px; 
+  background:#1e293b; /* EDITED: Darker navy blue to match image */
+  color:#ecf0f1; 
+  display:flex; 
+  flex-direction:column; 
+  padding:20px; 
+}
 .dashboard .sidebar h2 { text-align:center; margin-bottom:30px; }
-.dashboard .sidebar a { color:#ecf0f1; text-decoration:none; margin:15px 0; display:block; padding:10px; border-radius:8px; cursor:pointer; }
-.dashboard .sidebar a:hover { background:#34495e; }
+.dashboard .sidebar a { 
+  color:#ecf0f1; 
+  text-decoration:none; 
+  margin:10px 0; /* Adjusted margin for better spacing */
+  display:block; 
+  padding:10px 15px; /* Adjusted padding */
+  border-radius:8px; 
+  cursor:pointer; 
+  transition: background-color 0.2s ease; /* Smooth transition */
+}
+.dashboard .sidebar a:hover { 
+  background:#334155; /* EDITED: Subtle hover effect */
+}
+/* Sidebar active state */
+.sidebar a.active {
+  background: #3b82f6; /* EDITED: Lighter blue for active link to match image */
+  color: #ffffff; /* Brighter text for active link */
+}
+.sidebar a.active:hover {
+  background: #2563eb; /* EDITED: Slightly darker blue on hover for active link */
+}
+/* === EDITED SIDEBAR STYLES END === */
+
 .dashboard .main-content { flex:1; padding:20px; overflow-y:auto; }
 .dashboard .card,
 .dashboard .messages,
@@ -282,15 +312,6 @@
   background: #4b4c6a;
 }
 
-/* Sidebar active state */
-.sidebar a.active {
-  background: #3498db;
-  color: white;
-}
-
-.sidebar a.active:hover {
-  background: #2980b9;
-}
 .settings label, .project-form label { display:block; margin:10px 0 5px; font-weight:bold; }
 .settings input, .settings input[type="file"], .project-form input, .project-form textarea { padding:8px; width:100%; margin-bottom:15px; border:1px solid #ccc; border-radius:6px; }
 .settings button, .project-form button { padding:8px 15px; background:#27ae60; color:#fff; border:none; border-radius:6px; cursor:pointer; }

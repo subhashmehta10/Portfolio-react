@@ -222,9 +222,9 @@ const Dashboard = () => {
                 <tbody>
                   {registeredUsers.map((user, idx) => (
                     <tr key={idx}>
-                      <td style={{padding:'8px',border:'1px solid #2c3654'}}>{user.name}</td>
-                      <td style={{padding:'8px',border:'1px solid #2c3654'}}>{user.email}</td>
-                      <td style={{padding:'8px',border:'1px solid #2c3654'}}>{user.password}</td>
+                      <td style={{padding:'8px',border:'1px solid #2c3654'}} data-label="Name">{user.name}</td>
+                      <td style={{padding:'8px',border:'1px solid #2c3654'}} data-label="Email">{user.email}</td>
+                      <td style={{padding:'8px',border:'1px solid #2c3654'}} data-label="Password">{user.password}</td>
                     </tr>
                   ))}
                 </tbody>

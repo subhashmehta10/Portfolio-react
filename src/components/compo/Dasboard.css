@@ -1,3 +1,49 @@
+/* Responsive table for register section */
+.register-list table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #181f2f;
+  color: #fff;
+}
+.register-list th, .register-list td {
+  padding: 8px;
+  border: 1px solid #2c3654;
+  text-align: left;
+}
+.register-list th {
+  background: #232b3e;
+}
+
+@media (max-width: 700px) {
+  .register-list table, .register-list thead, .register-list tbody, .register-list th, .register-list td, .register-list tr {
+    display: block;
+    width: 100%;
+  }
+  .register-list thead {
+    display: none;
+  }
+  .register-list tr {
+    margin-bottom: 16px;
+    background: #232b3e;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    padding: 10px 0;
+  }
+  .register-list td {
+    border: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: left;
+    font-size: 1rem;
+  }
+  .register-list td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #8b5cf6;
+    display: block;
+    margin-bottom: 4px;
+  }
+}
 /* Mobile menu button styles */
 .dashboard-menu-btn {
   display: none;

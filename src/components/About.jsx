@@ -22,13 +22,13 @@ function About() {
             </p>
             <div className="hero-cta">
               <a className="btn" href="#contact">Hire Me</a>
-              <a className="btn secondary" href="#">Resume</a>
+              <a className="btn secondary" href="#">Download Resume</a>
             </div>
           </div>
         </div>
       </div>
     </section>
-
+    
   );
 }
 

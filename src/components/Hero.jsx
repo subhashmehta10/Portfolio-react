@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import IMG from "../assets/Image/IMG.jpg";
+import heroVideo from "../assets/Image/hero_section_video.mp4";
 
 // GitHub, LinkedIn, aur Twitter ke liye SVG Icons
 // Aap chahein to 'react-icons' jaisi library ka istemal bhi kar sakte hain
@@ -19,7 +20,7 @@ const TwitterIcon = () => (
 
 function Hero() {
   // Reusable typing component defined inline to avoid new files
-  const TypingText = ({ texts, typeSpeed = 70, deleteSpeed = 45, pauseMs = 1200, className = "", loop = true }) => {
+  const TypingText = ({ texts, typeSpeed = 70, deleteSpeed = 45, pauseMs = 1200, className = "", loop = true, highlightText, highlightClass = "" }) => {
     const safeTexts = useMemo(() => (Array.isArray(texts) ? texts.filter(Boolean) : [String(texts || "")] ), [texts]);
     const [textIndex, setTextIndex] = useState(0);
     const [displayed, setDisplayed] = useState("");
@@ -70,11 +71,36 @@ function Hero() {
       setTextIndex(0);
     }, [safeTexts]);
 
+    // Wrap only the highlighted substring if present in the displayed part
+    if (highlightText && displayed.includes(highlightText)) {
+      const idx = displayed.indexOf(highlightText);
+      const before = displayed.slice(0, idx);
+      const match = displayed.slice(idx, idx + highlightText.length);
+      const after = displayed.slice(idx + highlightText.length);
+      return (
+        <span className={`typing ${className}`}>
+          {before}
+          <span className={highlightClass}>{match}</span>
+          {after}
+        </span>
+      );
+    }
     return <span className={`typing ${className}`}>{displayed}</span>;
   };
 
   return (
     <main id="top" className="hero">
+      <div className="hero-bg" aria-hidden="true">
+        <video
+          className="hero-bg-video"
+          src={heroVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        />
+      </div>
       <div className="container hero-grid">
         <div>
           <p className="kicker">
@@ -83,10 +109,17 @@ function Hero() {
           <h1>
             <span
               style={{
-                color: "#ffffff",
+                color: "var(--text)",
               }}
             >
-              <TypingText texts={["Hi, I'm Subhash Mehta."]} typeSpeed={80} deleteSpeed={50} pauseMs={1400} />
+              <TypingText
+                texts={["Hi, I'm Subhash Mehta."]}
+                typeSpeed={80}
+                deleteSpeed={50}
+                pauseMs={1400}
+                highlightText="Subhash Mehta"
+                highlightClass="name-gradient"
+              />
             </span>
             <br />I build delightful, accessible web experiences.
           </h1>

@@ -90,6 +90,14 @@
     50% { background-position: 40% 40%, 60% 40%, 0 0; }
     100% { background-position: 100% 100%, 0% 100%, 0 0; }
   }
+/* Gradient text utility for highlighted name */
+.name-gradient {
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
   @keyframes menu-drop {
     0% { opacity: 0; transform: translateY(-8px); }
     100% { opacity: 1; transform: translateY(0); }

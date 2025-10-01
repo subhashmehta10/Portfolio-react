@@ -19,7 +19,7 @@ const TwitterIcon = () => (
 
 function Hero() {
   // Reusable typing component defined inline to avoid new files
-  const TypingText = ({ texts, typeSpeed = 70, deleteSpeed = 45, pauseMs = 1200, className = "", loop = true }) => {
+  const TypingText = ({ texts, typeSpeed = 70, deleteSpeed = 45, pauseMs = 1200, className = "", loop = true, highlightText, highlightClass = "" }) => {
     const safeTexts = useMemo(() => (Array.isArray(texts) ? texts.filter(Boolean) : [String(texts || "")] ), [texts]);
     const [textIndex, setTextIndex] = useState(0);
     const [displayed, setDisplayed] = useState("");
@@ -70,6 +70,20 @@ function Hero() {
       setTextIndex(0);
     }, [safeTexts]);
 
+    // Wrap only the highlighted substring if present in the displayed part
+    if (highlightText && displayed.includes(highlightText)) {
+      const idx = displayed.indexOf(highlightText);
+      const before = displayed.slice(0, idx);
+      const match = displayed.slice(idx, idx + highlightText.length);
+      const after = displayed.slice(idx + highlightText.length);
+      return (
+        <span className={`typing ${className}`}>
+          {before}
+          <span className={highlightClass}>{match}</span>
+          {after}
+        </span>
+      );
+    }
     return <span className={`typing ${className}`}>{displayed}</span>;
   };
 
@@ -83,10 +97,17 @@ function Hero() {
           <h1>
             <span
               style={{
-                color: "#ffffff",
+                color: "var(--text)",
               }}
             >
-              <TypingText texts={["Hi, I'm Subhash Mehta."]} typeSpeed={80} deleteSpeed={50} pauseMs={1400} />
+              <TypingText
+                texts={["Hi, I'm Subhash Mehta."]}
+                typeSpeed={80}
+                deleteSpeed={50}
+                pauseMs={1400}
+                highlightText="Subhash Mehta"
+                highlightClass="name-gradient"
+              />
             </span>
             <br />I build delightful, accessible web experiences.
           </h1>

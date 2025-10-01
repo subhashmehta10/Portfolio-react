@@ -90,6 +90,14 @@
     50% { background-position: 40% 40%, 60% 40%, 0 0; }
     100% { background-position: 100% 100%, 0% 100%, 0 0; }
   }
+/* Gradient text utility for highlighted name */
+.name-gradient {
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
   @keyframes menu-drop {
     0% { opacity: 0; transform: translateY(-8px); }
     100% { opacity: 1; transform: translateY(0); }
@@ -305,6 +313,23 @@ nav a:hover, nav a.active {
 .hero { 
 position: relative; 
 padding: 6.5rem 0 5rem; 
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11,16,32,.70), rgba(11,16,32,.65));
+}
+.hero-bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .hero-grid { 
 display:grid; 

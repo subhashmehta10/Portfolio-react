@@ -121,11 +121,12 @@ function Hero() {
                 highlightClass="name-gradient"
               />
             </span>
-            <br />I build delightful, accessible web experiences.
+            <br />I craft high‑performance React UIs with clean, reusable components.
           </h1>
           <p className="lead">
-            From concept to launch — I craft performant interfaces and robust
-            systems. Currently open to freelance and full-time opportunities.
+            React Developer focused on building fast, accessible user interfaces
+            with modern tooling. I ship production‑ready apps with clean
+            architecture and great developer experience.
           </p>
           <div className="hero-cta">
             <a className="btn" href="#work">View Projects</a>

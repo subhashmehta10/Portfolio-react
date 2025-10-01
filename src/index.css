@@ -154,7 +154,7 @@ header {
   border-radius: 15px;
   z-index: 50; 
   backdrop-filter: blur(100px) saturate(140%); 
-  background: linear-gradient(180deg, rgba(15,23,42,.8), rgba(15,23,42,.5) 40%, transparent); border-bottom: 1px solid #ffffff1a; 
+  /* background: linear-gradient(180deg, rgba(15,23,42,.8), rgba(15,23,42,.5) 40%, transparent); border-bottom: 1px solid #ffffff1a;  */
 }
 .nav { 
   display:flex; 
@@ -219,8 +219,6 @@ nav a:hover, nav a.active {
   transform: translateY(-50%); 
   z-index: 55; 
 }
-<<<<<<< HEAD
-=======
 .theme-btn--floating { 
   position: absolute; 
   right: 45px; 
@@ -228,7 +226,6 @@ nav a:hover, nav a.active {
   transform: translateY(-50%); 
   z-index: 55; 
 }
->>>>>>> f2a08b32b925d7fa3f15c66595f1fb92402733b4
 
 /* Profile icon styling */
 .profile-icon {

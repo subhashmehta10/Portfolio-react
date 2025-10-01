@@ -25,6 +25,11 @@
 
 /* Light theme component polish */
 [data-theme="light"] header {
+  background: transparent;
+  border-bottom-color: transparent;
+  box-shadow: none;
+}
+[data-theme="light"] header.scrolled {
   background: linear-gradient(180deg, rgba(255,255,255,.94), rgba(255,255,255,.78) 55%, transparent),
               radial-gradient(600px 220px at 85% -60%, color-mix(in oklab, var(--brand) 18%, transparent), transparent 60%);
   border-bottom: 1px solid rgba(2,6,23,.08);
@@ -55,8 +60,8 @@
   border-color: rgba(2,6,23,.12);
   color: var(--text);
 }
-[data-theme="light"] @media (max-width: 680px) {
-  nav ul {
+@media (max-width: 680px) {
+  [data-theme="light"] nav ul {
     background: #ffffffee;
     border-color: rgba(2,6,23,.12);
   }
@@ -148,13 +153,24 @@
 header { 
   display: flex;
   position:fixed; 
-  width: calc(100% - 40px);
+  width: 100%;
   height: 10vh;
-  margin: 20px 20px 20px 20px; 
-  border-radius: 15px;
+  margin: 0; 
+  border-radius: 0;
   z-index: 50; 
   backdrop-filter: blur(100px) saturate(140%); 
-  /* background: linear-gradient(180deg, rgba(15,23,42,.8), rgba(15,23,42,.5) 40%, transparent); border-bottom: 1px solid #ffffff1a;  */
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  box-shadow: none;
+  transition: background .3s ease, border-color .3s ease, box-shadow .3s ease, margin .3s ease, width .3s ease, border-radius .3s ease;
+}
+header.scrolled {
+  width: calc(100% - 40px);
+  margin: 20px 20px 20px 20px;
+  border-radius: 15px;
+  background: linear-gradient(180deg, rgba(15,23,42,.8), rgba(15,23,42,.5) 40%, transparent);
+  border-bottom: 1px solid #ffffff1a;
+  box-shadow: 0 10px 28px rgba(2,6,23,.18);
 }
 .nav { 
   display:flex; 
@@ -218,6 +234,19 @@ nav a:hover, nav a.active {
   top: 50%; 
   transform: translateY(-50%); 
   z-index: 55; 
+}
+
+/* Typing effect cursor */
+.typing {
+  position: relative;
+}
+.typing::after {
+  content: none;
+  display: none;
+}
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
 }
 .theme-btn--floating { 
   position: absolute; 

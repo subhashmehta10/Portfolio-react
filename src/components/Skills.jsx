@@ -10,9 +10,9 @@ function Skills() {
         el.style.setProperty('--reveal-delay', `${idx * 80}ms`);
       });
       const obs = new IntersectionObserver((entries) => {
-        entries.forEach((e)=>{ if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); } });
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); } });
       }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-      items.forEach((el)=>obs.observe(el));
+      items.forEach((el) => obs.observe(el));
     }, 0);
   }
   return (

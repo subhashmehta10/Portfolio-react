@@ -26,7 +26,7 @@ function Login() {
     <div className="login-bg-wrapper">
       <div className="login-container">
         <form className="login-form" onSubmit={handleLogin}>
-          <Link to="/" className="back-home-btn" style={{marginBottom: "0.7rem", display: "inline-block", textAlign: "left", color: "#8b5cf6", fontWeight: 600}}>
+          <Link to="/" className="back-home-btn" style={{ marginBottom: "0.7rem", display: "inline-block", textAlign: "left", color: "#8b5cf6", fontWeight: 600 }}>
             ← Return to Main Page
           </Link>
           <h2>Login</h2>
@@ -41,7 +41,7 @@ function Login() {
               required
             />
           </div>
-          <div className="input-group" style={{position: "relative"}}>
+          <div className="input-group" style={{ position: "relative" }}>
             <label htmlFor="password">Password</label>
             <input
               type={showPassword ? "text" : "password"}
@@ -50,22 +50,22 @@ function Login() {
               value={password}
               onChange={e => setPassword(e.target.value)}
               required
-              style={{paddingRight: "40px"}}
+              style={{ paddingRight: "40px" }}
             />
             <span
               onClick={() => setShowPassword(!showPassword)}
-              style={{position: "absolute", right: "12px", top: "50%", transform: "translateY(-50%)", cursor: "pointer", width: "24px", height: "24px", display: "flex", alignItems: "center", justifyContent: "center"}}
+              style={{ position: "absolute", right: "12px", top: "50%", transform: "translateY(-50%)", cursor: "pointer", width: "24px", height: "24px", display: "flex", alignItems: "center", justifyContent: "center" }}
             >
               {showPassword ? (
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 11C3.5 6 7.5 3 11 3C14.5 3 18.5 6 21 11C18.5 16 14.5 19 11 19C7.5 19 3.5 16 1 11Z" stroke="#8b5cf6" strokeWidth="2"/>
-                  <circle cx="11" cy="11" r="4" stroke="#8b5cf6" strokeWidth="2"/>
+                  <path d="M1 11C3.5 6 7.5 3 11 3C14.5 3 18.5 6 21 11C18.5 16 14.5 19 11 19C7.5 19 3.5 16 1 11Z" stroke="#8b5cf6" strokeWidth="2" />
+                  <circle cx="11" cy="11" r="4" stroke="#8b5cf6" strokeWidth="2" />
                 </svg>
               ) : (
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 11C3.5 6 7.5 3 11 3C14.5 3 18.5 6 21 11C18.5 16 14.5 19 11 19C7.5 19 3.5 16 1 11Z" stroke="#8b5cf6" strokeWidth="2"/>
-                  <circle cx="11" cy="11" r="4" stroke="#8b5cf6" strokeWidth="2"/>
-                  <line x1="5" y1="17" x2="17" y2="5" stroke="#8b5cf6" strokeWidth="2"/>
+                  <path d="M1 11C3.5 6 7.5 3 11 3C14.5 3 18.5 6 21 11C18.5 16 14.5 19 11 19C7.5 19 3.5 16 1 11Z" stroke="#8b5cf6" strokeWidth="2" />
+                  <circle cx="11" cy="11" r="4" stroke="#8b5cf6" strokeWidth="2" />
+                  <line x1="5" y1="17" x2="17" y2="5" stroke="#8b5cf6" strokeWidth="2" />
                 </svg>
               )}
             </span>

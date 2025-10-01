@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import IMG from "../assets/Image/IMG.jpg";
 
 // GitHub, LinkedIn, aur Twitter ke liye SVG Icons
@@ -18,25 +18,77 @@ const TwitterIcon = () => (
 
 
 function Hero() {
+  // Reusable typing component defined inline to avoid new files
+  const TypingText = ({ texts, typeSpeed = 70, deleteSpeed = 45, pauseMs = 1200, className = "", loop = true }) => {
+    const safeTexts = useMemo(() => (Array.isArray(texts) ? texts.filter(Boolean) : [String(texts || "")] ), [texts]);
+    const [textIndex, setTextIndex] = useState(0);
+    const [displayed, setDisplayed] = useState("");
+    const [isDeleting, setIsDeleting] = useState(false);
+    const timerRef = useRef(null);
+
+    useEffect(() => {
+      const full = safeTexts[textIndex] || "";
+      const atWordEnd = !isDeleting && displayed === full;
+      const atStart = isDeleting && displayed === "";
+
+      const step = () => {
+        if (isDeleting) {
+          setDisplayed(prev => prev.slice(0, -1));
+        } else {
+          setDisplayed(full.slice(0, displayed.length + 1));
+        }
+      };
+
+      const schedule = (ms) => {
+        clearTimeout(timerRef.current);
+        timerRef.current = setTimeout(step, ms);
+      };
+
+      if (atWordEnd) {
+        // pause before deleting
+        timerRef.current = setTimeout(() => setIsDeleting(true), pauseMs);
+        return () => clearTimeout(timerRef.current);
+      }
+
+      if (atStart) {
+        // move to next word
+        if (loop || textIndex < safeTexts.length - 1) {
+          setIsDeleting(false);
+          setTextIndex((textIndex + 1) % safeTexts.length);
+        }
+        return;
+      }
+
+      schedule(isDeleting ? deleteSpeed : typeSpeed);
+      return () => clearTimeout(timerRef.current);
+    }, [displayed, isDeleting, pauseMs, safeTexts, textIndex, typeSpeed, deleteSpeed, loop]);
+
+    // Reset when texts change
+    useEffect(() => {
+      setDisplayed("");
+      setIsDeleting(false);
+      setTextIndex(0);
+    }, [safeTexts]);
+
+    return <span className={`typing ${className}`}>{displayed}</span>;
+  };
+
   return (
     <main id="top" className="hero">
       <div className="container hero-grid">
         <div>
-          <p className="kicker">Designer • Developer • Problem Solver</p>
+          <p className="kicker">
+            <TypingText texts={["Designer • Developer • Problem Solver,"]} typeSpeed={70} deleteSpeed={45} pauseMs={1200} />
+          </p>
           <h1>
-            Hi, I'm{" "}
             <span
               style={{
-                background: "linear-gradient(90deg,var(--brand),var(--brand-2))",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                color: "transparent",
+                color: "#ffffff",
               }}
             >
-              {/* <-- Apka Naam Yahan Daalein */}
-              Subhash Mehta
+              <TypingText texts={["Hi, I'm Subhash Mehta."]} typeSpeed={80} deleteSpeed={50} pauseMs={1400} />
             </span>
-            . <br />I build delightful, accessible web experiences.
+            <br />I build delightful, accessible web experiences.
           </h1>
           <p className="lead">
             From concept to launch — I craft performant interfaces and robust

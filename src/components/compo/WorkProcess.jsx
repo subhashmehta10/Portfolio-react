@@ -29,6 +29,22 @@ const workSteps = [
 ];
 
 const WorkProcess = () => {
+  if (typeof window !== 'undefined') {
+    setTimeout(()=>{
+      const container = document.querySelector('.work-steps');
+      const items = container ? Array.from(container.querySelectorAll('.work-step')) : [];
+      if (!('IntersectionObserver' in window) || items.length === 0) return;
+      items.forEach((el, idx)=>{
+        const dir = idx % 2 === 0 ? 'reveal-left' : 'reveal-right';
+        el.classList.add('reveal', dir);
+        el.style.setProperty('--reveal-delay', `${idx * 90}ms`);
+      });
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach((e)=>{ if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      items.forEach((el)=>obs.observe(el));
+    },0);
+  }
   return (
     <div className="work-process-container">
       <h1>My Work Process</h1>

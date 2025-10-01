@@ -15,8 +15,7 @@ const Dashboard = () => {
   const [followers, setFollowers] = useState(350);
   const [following, setFollowing] = useState(180);
 
-  // Theme state
-  const [darkMode, setDarkMode] = useState(false);
+  // Theme switcher removed; dashboard always follows site theme
 
   // Section state
   const [activeSection, setActiveSection] = useState("profile");
@@ -52,7 +51,6 @@ const Dashboard = () => {
   const [tempPhoto, setTempPhoto] = useState(photo);
 
   // Handlers
-  const handleToggleTheme = () => setDarkMode(!darkMode);
 
   const handleNameChange = (e) => setTempName(e.target.value);
   const handleBioChange = (e) => setTempBio(e.target.value);
@@ -101,7 +99,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className={`dashboard ${darkMode ? "dark-mode" : ""}`}> 
+    <div className={`dashboard`}> 
       {/* Mobile menu button */}
       <button className="dashboard-menu-btn" onClick={() => setMenuOpen(!menuOpen)}>
         ☰ Menu
@@ -344,8 +342,7 @@ const Dashboard = () => {
           <div className="settings card">
             <h3>Settings</h3>
             
-            <label>Theme:</label>
-            <button onClick={handleToggleTheme}>Toggle Dark/Light</button>
+            {/* Theme controls removed */}
 
             <label>Update Name:</label>
             <input

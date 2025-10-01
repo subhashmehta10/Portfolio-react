@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import IMG from "../assets/Image/IMG.jpg";
+import heroVideo from "../assets/Image/hero_section_video.mp4";
 
 // GitHub, LinkedIn, aur Twitter ke liye SVG Icons
 // Aap chahein to 'react-icons' jaisi library ka istemal bhi kar sakte hain
@@ -89,6 +90,17 @@ function Hero() {
 
   return (
     <main id="top" className="hero">
+      <div className="hero-bg" aria-hidden="true">
+        <video
+          className="hero-bg-video"
+          src={heroVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        />
+      </div>
       <div className="container hero-grid">
         <div>
           <p className="kicker">

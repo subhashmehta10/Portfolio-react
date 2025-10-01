@@ -15,6 +15,29 @@ function Projects() {
     return () => mq.removeEventListener?.('change', apply);
   }, []);
 
+  // Animate project cards when they enter viewport
+  useEffect(() => {
+    const cards = Array.from(document.querySelectorAll('.project.card'));
+    if (!('IntersectionObserver' in window) || cards.length === 0) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            el.classList.add('in-view');
+            observer.unobserve(el);
+          }
+        });
+      },
+      { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.15 }
+    );
+    cards.forEach((el, idx) => {
+      el.style.setProperty('--reveal-delay', `${idx * 120}ms`);
+      observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
   const handleToggle = (e) => {
     e.preventDefault();
     setShowAll((v) => !v);
@@ -34,7 +57,7 @@ function Projects() {
         <div className="grid projects">
 
           {/* Project 1 */}
-          <article className="project card" aria-labelledby="p1-title">
+          <article className="project card reveal-left" aria-labelledby="p1-title">
             <div className="thumb">
               <img
                 loading="lazy"
@@ -58,7 +81,7 @@ function Projects() {
           </article>
 
           {/* Project 2 */}
-          <article className="project card" aria-labelledby="p2-title">
+          <article className="project card reveal-up" aria-labelledby="p2-title">
             <div className="thumb">
               <img
                 loading="lazy"
@@ -82,7 +105,7 @@ function Projects() {
           </article>
 
           {/* Project 3 */}
-          <article className="project card" aria-labelledby="p3-title" style={isMobile && !showAll ? { display: 'none' } : undefined}>
+          <article className="project card reveal-right" aria-labelledby="p3-title" style={isMobile && !showAll ? { display: 'none' } : undefined}>
             <div className="thumb">
               <img
                 loading="lazy"

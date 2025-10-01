@@ -7,6 +7,19 @@ function Header() {
     return saved || "dark";
   });
 
+  // Ensure header scrolled class toggles regardless of menu presence
+  useEffect(() => {
+    const header = document.querySelector("header[aria-label='Primary']");
+    if (!header) return;
+    const onScrollOnly = () => {
+      if (window.scrollY > 10) header.classList.add("scrolled");
+      else header.classList.remove("scrolled");
+    };
+    document.addEventListener("scroll", onScrollOnly, { passive: true });
+    onScrollOnly();
+    return () => document.removeEventListener("scroll", onScrollOnly);
+  }, []);
+
   useEffect(() => {
     const root = document.documentElement;
     root.setAttribute("data-theme", theme);
@@ -65,6 +78,11 @@ function Header() {
 
     const onScroll = () => {
       const pos = window.scrollY + 100;
+      // Toggle scrolled class for header margin/background behavior
+      if (header) {
+        if (window.scrollY > 10) header.classList.add("scrolled");
+        else header.classList.remove("scrolled");
+      }
       for (let i = sections.length - 1; i >= 0; i--) {
         const s = sections[i];
         if (s.offsetTop <= pos) {

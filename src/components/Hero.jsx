@@ -134,15 +134,15 @@ function Hero() {
 
           {/* --- Naye Social Links --- */}
           <div className="social-links">
-            <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+            <a href="https://github.com/subhashmehta10" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
               {/* <-- Apna GitHub link daalein */}
               <GithubIcon />
             </a>
-            <a href="https://linkedin.com/in/your-username" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+            <a href="https://www.linkedin.com/in/mehta-subhash10/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
               {/* <-- Apna LinkedIn link daalein */}
               <LinkedinIcon />
             </a>
-            <a href="https://twitter.com/your-username" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile">
+            <a href="https://twitter.com/official_subh03" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile">
               {/* <-- Apna Twitter/X link daalein */}
               <TwitterIcon />
             </a>

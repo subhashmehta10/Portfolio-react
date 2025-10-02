@@ -11,6 +11,7 @@ import Skills from "./components/Skills";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import About from "./components/About";
+import AboutPage from "./components/AboutPage";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Services from "./components/compo/service";
@@ -43,9 +44,10 @@ function App() {
             </>
           }
         />
-  <Route path="/login" element={<Login />} />
-  <Route path="/register" element={<Register />} />
-  <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   );

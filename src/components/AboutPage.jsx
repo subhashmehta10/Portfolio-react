@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import IMG from "../assets/Image/IMG1.jpg";
+import Subhash from "../assets/Image/Subhash CV.pdf";
 import "../components/AboutPage.css";
 
 function AboutPage() {
@@ -251,7 +252,7 @@ function AboutPage() {
             </p>
             <div className="cta-buttons">
               <Link to="/#contact" className="btn primary">Get In Touch</Link>
-              <a href="#" className="btn secondary">Download Resume</a>
+              <a href={Subhash} className="btn secondary" target="_blank">Download Resume</a>
             </div>
           </section>
         </div>

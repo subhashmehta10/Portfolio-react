@@ -1,4 +1,4 @@
-import IMG from "../assets/Image/IMG.jpg";
+import IMG from "../assets/Image/IMG1.jpg";
 
 function About() {
   if (typeof window !== 'undefined') {

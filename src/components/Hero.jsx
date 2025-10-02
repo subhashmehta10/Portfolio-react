@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import IMG from "../assets/Image/IMG.jpg";
+import IMG from "../assets/Image/IMG1.jpg";
 import heroVideo from "../assets/Image/hero_section_video.mp4";
 
 // GitHub, LinkedIn, aur Twitter ke liye SVG Icons

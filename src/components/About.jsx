@@ -1,21 +1,21 @@
-import IMG from "../assets/Image/IMG.jpg";
+import IMG from "../assets/Image/IMG1.jpg";
 
 function About() {
   if (typeof window !== 'undefined') {
-    setTimeout(()=>{
+    setTimeout(() => {
       const root = document.getElementById('about');
       const cards = root ? Array.from(root.querySelectorAll('.about-grid .card')) : [];
       if (!('IntersectionObserver' in window) || cards.length === 0) return;
-      cards.forEach((el, idx)=>{
+      cards.forEach((el, idx) => {
         const dir = idx % 2 === 0 ? 'reveal-left' : 'reveal-right';
         el.classList.add('reveal', dir);
         el.style.setProperty('--reveal-delay', `${idx * 100}ms`);
       });
-      const obs = new IntersectionObserver((entries)=>{
-        entries.forEach((e)=>{ if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); } });
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); } });
       }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-      cards.forEach((el)=>obs.observe(el));
-    },0);
+      cards.forEach((el) => obs.observe(el));
+    }, 0);
   }
   return (
     <section id="about" aria-labelledby="about-title">
@@ -25,7 +25,7 @@ function About() {
         </div>
         <div className="grid about-grid">
           <div className="card">
-            <img loading="lazy" alt="Portrait" src={IMG} style={{ borderRadius: "12px" }}/>
+            <img loading="lazy" alt="Portrait" src={IMG} style={{ borderRadius: "12px" }} />
           </div>
           <div className="card">
             <p className="lead">
@@ -44,7 +44,7 @@ function About() {
         </div>
       </div>
     </section>
-    
+
   );
 }
 

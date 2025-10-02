@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import IMG from "../assets/Image/IMG.jpg";
+import IMG from "../assets/Image/IMG1.jpg";
 import heroVideo from "../assets/Image/hero_section_video.mp4";
 
 // GitHub, LinkedIn, aur Twitter ke liye SVG Icons
@@ -9,11 +9,11 @@ const GithubIcon = () => (
 );
 
 const LinkedinIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
 );
 
 const TwitterIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
 );
 
 
@@ -21,7 +21,7 @@ const TwitterIcon = () => (
 function Hero() {
   // Reusable typing component defined inline to avoid new files
   const TypingText = ({ texts, typeSpeed = 70, deleteSpeed = 45, pauseMs = 1200, className = "", loop = true, highlightText, highlightClass = "" }) => {
-    const safeTexts = useMemo(() => (Array.isArray(texts) ? texts.filter(Boolean) : [String(texts || "")] ), [texts]);
+    const safeTexts = useMemo(() => (Array.isArray(texts) ? texts.filter(Boolean) : [String(texts || "")]), [texts]);
     const [textIndex, setTextIndex] = useState(0);
     const [displayed, setDisplayed] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
@@ -121,11 +121,11 @@ function Hero() {
                 highlightClass="name-gradient"
               />
             </span>
-            <br />I craft high‑performance React UIs with clean, reusable components.
+            <br />I craft high performance React UIs with clean, reusable components.
           </h1>
           <p className="lead">
             React Developer focused on building fast, accessible user interfaces
-            with modern tooling. I ship production‑ready apps with clean
+            with modern tooling. I ship production ready apps with clean
             architecture and great developer experience.
           </p>
           <div className="hero-cta">
@@ -152,7 +152,7 @@ function Hero() {
         </div>
         <aside className="hero-card">
           {/* --- Profile Photo --- */}
-          <img 
+          <img
             src={IMG} // <-- Apni photo ka path yahan daalein (e.g., '/images/profile.png')
             alt="Subhash Mehta" className="profile-pic"
           />

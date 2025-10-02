@@ -95,7 +95,7 @@ function Header() {
     <header aria-label="Primary">
       <div className="container nav">
         <a className="brand" href="#top" aria-label="Homepage">
-          <span>Portfolio.</span>
+          <span>Portfolio</span>
         </a>
         <button className="menu-btn" aria-expanded="false" aria-controls="menu">
           ☰ Menu

@@ -31,10 +31,10 @@ export default function EducationTimeline() {
         el.classList.add('reveal', dir);
         el.style.setProperty('--reveal-delay', `${idx * 90}ms`);
       });
-      const obs = new IntersectionObserver((entries)=>{
-        entries.forEach((e)=>{ if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); } });
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); } });
       }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-      items.forEach((el)=>obs.observe(el));
+      items.forEach((el) => obs.observe(el));
     }, 0);
   }
   const education = [

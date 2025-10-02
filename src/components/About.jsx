@@ -1,4 +1,5 @@
 import IMG from "../assets/Image/IMG1.jpg";
+import { Link } from "react-router-dom";
 
 function About() {
   if (typeof window !== 'undefined') {
@@ -39,6 +40,9 @@ function About() {
             <div className="hero-cta">
               <a className="btn" href="#contact">Hire Me</a>
               <a className="btn secondary" href="#">Download Resume</a>
+              <Link className="btn tertiary" to="/about">
+                More Details <span className="arrow-icon">→</span>
+              </Link>
             </div>
           </div>
         </div>

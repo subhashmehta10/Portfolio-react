@@ -256,6 +256,7 @@ header.scrolled {
   display: flex;
   align-items: center;
   gap: .7rem;
+  color:orange;
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: .4px;

@@ -121,11 +121,11 @@ function Hero() {
                 highlightClass="name-gradient"
               />
             </span>
-            <br />I craft high‑performance React UIs with clean, reusable components.
+            <br />I craft high performance React UIs with clean, reusable components.
           </h1>
           <p className="lead">
             React Developer focused on building fast, accessible user interfaces
-            with modern tooling. I ship production‑ready apps with clean
+            with modern tooling. I ship production ready apps with clean
             architecture and great developer experience.
           </p>
           <div className="hero-cta">

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import TelegramFloat from "./compo/TelegramFloat";
 import { Link } from "react-router-dom";
 import IMG from "../assets/Image/IMG1.jpg";
 import Subhash from "../assets/Image/Subhash CV.pdf";
@@ -36,6 +37,7 @@ function AboutPage() {
   }, []);
   return (
     <div className={`about-page ${useMainBackground ? 'use-main-bg' : ''}`}>
+      <TelegramFloat />
       {/* Navigation Header */}
       <nav className="about-nav">
         <div className="container">

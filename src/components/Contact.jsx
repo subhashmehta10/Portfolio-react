@@ -2,6 +2,22 @@ import { useState } from "react";
 
 function Contact() {
   const [status, setStatus] = useState("");
+  if (typeof window !== 'undefined') {
+    setTimeout(() => {
+      const root = document.getElementById('contact');
+      const elts = root ? Array.from(root.querySelectorAll('.contact-grid .card')) : [];
+      if (!('IntersectionObserver' in window) || elts.length === 0) return;
+      elts.forEach((el, idx) => {
+        const dir = idx % 2 === 0 ? 'reveal-left' : 'reveal-right';
+        el.classList.add('reveal', dir);
+        el.style.setProperty('--reveal-delay', `${idx * 100}ms`);
+      });
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      elts.forEach((el) => obs.observe(el));
+    }, 0);
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();

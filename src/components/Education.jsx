@@ -21,6 +21,22 @@ function EducationItem({ degree, school, start, end, location, details }) {
 }
 
 export default function EducationTimeline() {
+  if (typeof window !== 'undefined') {
+    setTimeout(() => {
+      const root = document.getElementById('education');
+      const items = root ? Array.from(root.querySelectorAll('.t-item.card')) : [];
+      if (!('IntersectionObserver' in window) || items.length === 0) return;
+      items.forEach((el, idx) => {
+        const dir = idx % 2 === 0 ? 'reveal-left' : 'reveal-right';
+        el.classList.add('reveal', dir);
+        el.style.setProperty('--reveal-delay', `${idx * 90}ms`);
+      });
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      items.forEach((el) => obs.observe(el));
+    }, 0);
+  }
   const education = [
     {
       degree: "B.Tech in Computer Science & Engineering",

@@ -3,6 +3,22 @@ import React from 'react';
 // import './Services.css';  // Ensure this CSS file includes styles
 
 const Services = () => {
+    if (typeof window !== 'undefined') {
+        setTimeout(()=>{
+            const root = document.querySelector('.services-grid');
+            const cards = root ? Array.from(root.querySelectorAll('.service-card')) : [];
+            if (!('IntersectionObserver' in window) || cards.length === 0) return;
+            cards.forEach((el, idx)=>{
+                const dir = idx % 3 === 0 ? 'reveal-left' : (idx % 3 === 1 ? 'reveal-up' : 'reveal-right');
+                el.classList.add('reveal', dir);
+                el.style.setProperty('--reveal-delay', `${idx * 100}ms`);
+            });
+            const obs = new IntersectionObserver((entries)=>{
+                entries.forEach((e)=>{ if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); } });
+            }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+            cards.forEach((el)=>obs.observe(el));
+        }, 0);
+    }
     return (
         <>
         <div className="services-container">

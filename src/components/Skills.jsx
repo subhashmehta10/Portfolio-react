@@ -1,4 +1,20 @@
 function Skills() {
+  // Reveal on scroll
+  if (typeof window !== 'undefined') {
+    setTimeout(() => {
+      const root = document.getElementById('skills');
+      const items = root ? Array.from(root.querySelectorAll('.skill')) : [];
+      if (!('IntersectionObserver' in window) || items.length === 0) return;
+      items.forEach((el, idx) => {
+        el.classList.add('reveal', idx % 2 === 0 ? 'reveal-left' : 'reveal-right');
+        el.style.setProperty('--reveal-delay', `${idx * 80}ms`);
+      });
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      items.forEach((el) => obs.observe(el));
+    }, 0);
+  }
   return (
     <section id="skills" aria-labelledby="skills-title">
       <div className="container">

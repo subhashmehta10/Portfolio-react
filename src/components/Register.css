@@ -4,15 +4,18 @@
   font-size: 0.98rem;
   color: #e5e7eb;
 }
+
 .login-link a {
   color: #8b5cf6;
   text-decoration: underline;
   cursor: pointer;
   transition: color 0.2s;
 }
+
 .login-link a:hover {
   color: #6d28d9;
 }
+
 /* Wrapper for background, matches main page */
 .register-bg-wrapper {
   min-height: 100vh;
@@ -21,9 +24,9 @@
   top: 0;
   left: 0;
   z-index: 0;
-  background: radial-gradient(1200px 700px at 10% -10%, rgba(139,92,246,.18), transparent 60%),
-              radial-gradient(1000px 600px at 90% 10%, rgba(6,182,212,.15), transparent 60%),
-              #0b1020;
+  background: radial-gradient(1200px 700px at 10% -10%, rgba(139, 92, 246, .18), transparent 60%),
+    radial-gradient(1000px 600px at 90% 10%, rgba(6, 182, 212, .15), transparent 60%),
+    #0b1020;
   background-repeat: no-repeat;
   background-size: 180% 180%, 180% 180%, auto;
   background-position: 0% 0%, 100% 0%, 0 0;
@@ -33,9 +36,17 @@
 }
 
 @keyframes bg-move {
-  0% { background-position: 0% 0%, 100% 0%, 0 0; }
-  50% { background-position: 40% 40%, 60% 40%, 0 0; }
-  100% { background-position: 100% 100%, 0% 100%, 0 0; }
+  0% {
+    background-position: 0% 0%, 100% 0%, 0 0;
+  }
+
+  50% {
+    background-position: 40% 40%, 60% 40%, 0 0;
+  }
+
+  100% {
+    background-position: 100% 100%, 0% 100%, 0 0;
+  }
 }
 
 .register-container {
@@ -50,7 +61,7 @@
   color: #fff;
   padding: 2rem 2.5rem;
   border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
   width: 400px;
   display: flex;
   flex-direction: column;

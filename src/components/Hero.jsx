@@ -18,6 +18,7 @@ const TwitterIcon = () => (
 
 
 
+
 function Hero() {
   // Reusable typing component defined inline to avoid new files
   const TypingText = ({ texts, typeSpeed = 70, deleteSpeed = 45, pauseMs = 1200, className = "", loop = true, highlightText, highlightClass = "" }) => {

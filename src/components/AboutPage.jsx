@@ -144,28 +144,28 @@ function AboutPage() {
             <h2>My Development Philosophy</h2>
             <div className="philosophy-grid">
               <div className="philosophy-item">
-                <h3>🎯 User-Centric Design</h3>
+                <h3>User-Centric Design</h3>
                 <p>
                   I believe in putting users first. Every interface I create is designed 
                   with accessibility, usability, and user experience in mind.
                 </p>
               </div>
               <div className="philosophy-item">
-                <h3>🔧 Clean Code</h3>
+                <h3>Clean Code</h3>
                 <p>
                   Writing maintainable, readable, and efficient code is not just a practice 
                   but a commitment to future developers and project sustainability.
                 </p>
               </div>
               <div className="philosophy-item">
-                <h3>🚀 Continuous Learning</h3>
+                <h3>Continuous Learning</h3>
                 <p>
                   The tech world evolves rapidly, and I'm committed to staying updated 
                   with the latest technologies and best practices.
                 </p>
               </div>
               <div className="philosophy-item">
-                <h3>🤝 Collaboration</h3>
+                <h3>Collaboration</h3>
                 <p>
                   Great products are built by great teams. I value open communication, 
                   feedback, and collaborative problem-solving.
@@ -226,19 +226,19 @@ function AboutPage() {
             <h2>Beyond Coding</h2>
             <div className="interests-grid">
               <div className="interest-item">
-                <h3>🎨 UI/UX Design</h3>
+                <h3> UI/UX Design</h3>
                 <p>Sketching interface ideas and exploring design principles</p>
               </div>
               <div className="interest-item">
-                <h3>📝 Technical Writing</h3>
+                <h3> Technical Writing</h3>
                 <p>Writing development notes and sharing knowledge with the community</p>
               </div>
               <div className="interest-item">
-                <h3>🎮 Gaming</h3>
+                <h3>Gaming</h3>
                 <p>Playing games for relaxation and inspiration for interactive experiences</p>
               </div>
               <div className="interest-item">
-                <h3>🌱 Learning</h3>
+                <h3>Learning</h3>
                 <p>Always exploring new technologies and development techniques</p>
               </div>
             </div>

@@ -105,7 +105,7 @@ function Hero() {
       <div className="container hero-grid">
         <div>
           <p className="kicker">
-            <TypingText texts={["Designer • Developer • Problem Solver,"]} typeSpeed={70} deleteSpeed={45} pauseMs={1200} />
+            Designer • Developer • Problem Solver
           </p>
           <h1>
             <span

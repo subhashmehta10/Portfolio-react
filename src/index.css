@@ -798,6 +798,18 @@ section {
   box-shadow: 0 0 0 4px #8b5cf633;
 }
 
+/* Increase gap between points in Education/Experience cards */
+#education .t-item.card ul li,
+#experience .t-item.card ul li {
+  margin: .55rem 0;
+}
+
+/* Increase vertical gap between Education/Experience cards */
+#education .timeline .t-item.card:not(:last-child),
+#experience .timeline .t-item.card:not(:last-child) {
+  margin-bottom: 1.6rem;
+}
+
 /* Contact */
 form {
   display: grid;
@@ -813,6 +825,18 @@ textarea {
   background: #0f172a;
   color: var(--text);
   outline: none;
+}
+
+/* Larger input text specifically in Contact section */
+#contact input,
+#contact textarea {
+  font-size: 1.4rem;
+}
+
+/* Larger "Send Message" button in Contact section */
+#contact .hero-cta .btn {
+  padding: 1.05rem 1.25rem;
+  font-size: 1.05rem;
 }
 
 input:focus,

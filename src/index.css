@@ -13,6 +13,21 @@
   --mixbtn: linear-gradient(180deg, color-mix(in oklab, var(--brand) 20%, transparent), color-mix(in oklab, var(--brand-2) 20%, transparent));
 }
 
+/* Basic styling - allow normal context menu */
+* {
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Disable image dragging to prevent easy saving */
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
 /* Light theme removed */
 .glass {
   backdrop-filter: blur(10px) saturate(120%);

@@ -13,6 +13,21 @@
   --mixbtn: linear-gradient(180deg, color-mix(in oklab, var(--brand) 20%, transparent), color-mix(in oklab, var(--brand-2) 20%, transparent));
 }
 
+/* Basic styling - allow normal context menu */
+* {
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Disable image dragging to prevent easy saving */
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
 /* Light theme removed */
 .glass {
   backdrop-filter: blur(10px) saturate(120%);
@@ -830,13 +845,13 @@ textarea {
 /* Larger input text specifically in Contact section */
 #contact input,
 #contact textarea {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
 }
 
 /* Larger "Send Message" button in Contact section */
 #contact .hero-cta .btn {
   padding: 1.05rem 1.25rem;
-  font-size: 1.05rem;
+  font-size: 1rem;
 }
 
 input:focus,
@@ -1228,4 +1243,45 @@ footer {
   height: 30px;
   line-height: 30px;
   margin-top: 10px;
+}
+
+/* See All Button Styles for Projects */
+.see-all-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.see-all-btn {
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.see-all-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+  background: linear-gradient(135deg, var(--brand-2), var(--brand));
+}
+
+.see-all-btn:active {
+  transform: translateY(0);
+}
+
+/* Light theme button styles */
+[data-theme="light"] .see-all-btn {
+  background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+}
+
+[data-theme="light"] .see-all-btn:hover {
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
 }

@@ -3,10 +3,13 @@ import TelegramFloat from "./compo/TelegramFloat";
 import { Link } from "react-router-dom";
 import IMG from "../assets/Image/IMG1.jpg";
 import Subhash from "../assets/Image/Subhash CV.pdf";
+import Map from "./Map";
+import Certificate from "./Certificate";
+import Footer from "./Footer";
 import "../components/AboutPage.css";
 
 function AboutPage() {
-  const [useMainBackground, setUseMainBackground] = useState(false);
+  const [useMainBackground, setUseMainBackground] = useState(true);
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -56,7 +59,7 @@ function AboutPage() {
                 {useMainBackground ? '🌙' : '✨'}
               </span>
               <span className="theme-label">
-                {useMainBackground ? 'Default Theme' : 'Use Main Theme'}
+                {useMainBackground ? 'Use Main Theme' : 'Default Theme'}
               </span>
             </button>
           </div>
@@ -221,6 +224,9 @@ function AboutPage() {
             </div>
           </section>
 
+          {/* Certificates */}
+          <Certificate />
+
           {/* Interests */}
           <section className="about-section">
             <h2>Beyond Coding</h2>
@@ -244,21 +250,27 @@ function AboutPage() {
             </div>
           </section>
 
-          {/* Call to Action */}
-          <section className="about-cta">
-            <h2>Let's Work Together</h2>
-            <p>
-              I'm always excited to work on new projects and collaborate with fellow developers 
-              and designers. If you have an interesting project or just want to chat about 
-              development, feel free to reach out!
-            </p>
-            <div className="cta-buttons">
-              <Link to="/#contact" className="btn primary">Get In Touch</Link>
-              <a href={Subhash} className="btn secondary" target="_blank">Download Resume</a>
+          {/* Call to Action and Map Row */}
+          <section className="about-cta-map-row">
+            <div className="cta-section">
+              <h2>Let's Work Together</h2>
+              <p>
+                I'm always excited to work on new projects and collaborate with fellow developers 
+                and designers. If you have an interesting project or just want to chat about 
+                development, feel free to reach out!
+              </p>
+              <div className="cta-buttons">
+                <Link to="/#contact" className="btn primary">Get In Touch</Link>
+                <a href={Subhash} className="btn secondary" target="_blank">Download Resume</a>
+              </div>
+            </div>
+            <div className="map-section">
+              <Map />
             </div>
           </section>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }

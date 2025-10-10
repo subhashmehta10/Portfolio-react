@@ -47,12 +47,7 @@ function Projects() {
     <section id="work" aria-labelledby="work-title">
       <div className="container">
         <div className="section-head">
-          <h2 id="work-title">Selected Work</h2>
-          {isMobile && (
-            <button className="btn secondary" onClick={handleToggle} aria-expanded={showAll}>
-              {showAll ? 'Show Less' : 'See All'}
-            </button>
-          )}
+          <h2 id="work-title">Projects Work</h2>
         </div>
         <div className="grid projects">
 
@@ -130,6 +125,14 @@ function Projects() {
 
 
         </div>
+        
+        {isMobile && (
+          <div className="see-all-container">
+            <button className="see-all-btn" onClick={handleToggle}>
+              {showAll ? 'Show Less' : 'See All'}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

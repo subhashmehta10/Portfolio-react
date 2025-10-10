@@ -65,6 +65,9 @@ export default function EducationTimeline() {
       start: "2019",
       end: "2020",
       location: "Bihar",
+      details: [
+        "Scored 76.4%",
+      ],
     },
   ];
 

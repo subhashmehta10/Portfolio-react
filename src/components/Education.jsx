@@ -39,7 +39,7 @@ export default function EducationTimeline() {
   }
   const education = [
     {
-      degree: "B.Tech in Computer Science & Engineering",
+      degree: "B.Tech",
       school: "Prestige Institute of Management and Research",
       start: "2023",
       end: "2026",
@@ -47,7 +47,6 @@ export default function EducationTimeline() {
       details: [
         "Branch: Computer Science and Engineering",
         "CGPA: Appearing...",
-        "Thesis on scalable graph processing",
       ],
     },
     {
@@ -58,7 +57,6 @@ export default function EducationTimeline() {
       location: "Koderma, Jharkhand",
       details: [
         "Branch: Computer Science",
-        "Scored 65.5%",
       ],
     },
     {
@@ -67,9 +65,6 @@ export default function EducationTimeline() {
       start: "2019",
       end: "2020",
       location: "Bihar",
-      details: [
-        "Scored 76.4%",
-      ],
     },
   ];
 

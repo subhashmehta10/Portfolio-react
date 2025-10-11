@@ -71,7 +71,7 @@ const AboutPageChatWidget = () => {
   };
 
   const quickActions = [
-    { text: "Hire Me", action: () => window.open(Subhash, '_blank') },
+    { text: "Hire Me", action: () => console.log("Hire Me") },
     { text: "View Projects", action: () => console.log("View Projects") }
   ];
 

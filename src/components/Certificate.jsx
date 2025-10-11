@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import certificate1 from "../assets/Image/Oracle.png";
 import certificate2 from "../assets/Image/Codsoft.jpg";
 import certificate3 from "../assets/Image/Certificate3.png";
+import certificate4 from "../assets/Image/Certificate4.png";
 import './Certificate.css';
 
 function Certificate() {
@@ -19,12 +20,20 @@ function Certificate() {
 
   const certificates = [
     {
+      id: 4,
+      name: "Oracle Cloud Infrastructure 2025 Certified Al Foundations Associate",
+      issuer: "Oracle",
+      date: "2025",
+      image: certificate4,
+      description: "This certifies that the above named is recognized by Oracle Corporation as Oracle Certified."
+    },
+    {
       id: 1,
       name: "Oracle Cloud Infrastructure 2025 Certified Generative Al",
       issuer: "Oracle",
       date: "2025",
       image: certificate1,
-      description: "Complete React development course covering hooks, state management, and modern practices"
+      description: "This certifies that the above named is recognized by Oracle Corporation as Oracle Certified."
     },
     {
       id: 2,
@@ -41,14 +50,6 @@ function Certificate() {
       date: "2023",
       image: certificate3,
       description: "Full-stack web development covering HTML, CSS, JavaScript, Node.js, and databases"
-    },
-    {
-      id: 4,
-      name: "Certificate Not Available",
-      issuer: "Certificate Not Available",
-      date: "2025",
-      image: "certificate4",
-      description: "Advanced CSS including Flexbox, Grid, animations, and responsive design"
     },
     {
       id: 5,
@@ -82,7 +83,7 @@ function Certificate() {
         {displayedCertificates.map((cert) => (
           <div key={cert.id} className="certificate-card" onClick={() => openModal(cert)}>
             <div className="certificate-image">
-              {cert.id === 4 || cert.id === 5 ? (      //-----------------------------  when certificate available so remove (---- lline code)
+              {cert.id === 5 ? (      //-----------------------------  when certificate available so remove (---- lline code)
                 <div className="certificate-not-available">
                   <span>Certificate Not Available</span>  
                 </div>  //-----------------------------  when certificate available so remove (---- lline code)
@@ -113,7 +114,7 @@ function Certificate() {
             <button className="modal-close-btn" onClick={closeModal}>×</button>
             <div className="modal-content">
               <div className="modal-image">
-                {selectedCertificate.id === 4 || selectedCertificate.id === 5 ? (   //-----------------------------  when certificate available so remove (---- lline code)
+                {selectedCertificate.id === 5 ? (   //-----------------------------  when certificate available so remove (---- lline code)
                   <div className="modal-certificate-not-available"> 
                     <span>Certificate Not Available</span>
                   </div>
@@ -123,6 +124,20 @@ function Certificate() {
               </div>
               <div className="modal-details">
                 <h3>{selectedCertificate.name}</h3>
+                <div className="modal-issuer-section">
+                  <p className="modal-issuer">{selectedCertificate.issuer} • {selectedCertificate.date}</p>
+                  <button 
+                    className="modal-download-btn"
+                    onClick={() => {
+                      const link = document.createElement('a');
+                      link.href = selectedCertificate.image;
+                      link.download = `${selectedCertificate.name}.png`;
+                      link.click();
+                    }}
+                  >
+                    📥 Download
+                  </button>
+                </div>
               </div>
             </div>
           </div>

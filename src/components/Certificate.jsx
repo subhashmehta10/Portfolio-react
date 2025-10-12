@@ -5,6 +5,8 @@ import certificate3 from "../assets/Image/Certificate3.png";
 import certificate4 from "../assets/Image/Certificate4.png";
 import certificate5 from "../assets/Image/Certificate5.jpg";
 import certificate6 from "../assets/Image/Certificate6.jpg";
+import certificate7 from "../assets/Image/Certificate7 JavaScript.jpg";
+import certificate8 from "../assets/Image/Certificate8 Introduction_to_Cybersecurit.jpg";
 import './Certificate.css';
 
 function Certificate() {
@@ -22,7 +24,7 @@ function Certificate() {
 
   const certificates = [
     {
-      id: 4,
+      id: 1,
       name: "Oracle Cloud Infrastructure 2025 Certified Al Foundations Associate",
       issuer: "Oracle",
       date: "2025",
@@ -30,7 +32,7 @@ function Certificate() {
       description: "This certifies that the above named is recognized by Oracle Corporation as Oracle Certified."
     },
     {
-      id: 1,
+      id: 2,
       name: "Oracle Cloud Infrastructure 2025 Certified Generative Al",
       issuer: "Oracle",
       date: "2025",
@@ -38,7 +40,7 @@ function Certificate() {
       description: "This certifies that the above named is recognized by Oracle Corporation as Oracle Certified."
     },
     {
-      id: 2,
+      id: 3,
       name: "Web Development",
       issuer: "CodeSoft",
       date: "2024",
@@ -46,7 +48,7 @@ function Certificate() {
       description: " Comprehensive web development course covering HTML, CSS, JavaScript, React, Node.js, and databases"
     },
     {
-      id: 3,
+      id: 4,
       name: "Front End Development - HTML",
       issuer: "Great Learning",
       date: "2023",
@@ -63,6 +65,22 @@ function Certificate() {
     },
     {
       id: 6,
+      name: "Chandrayan MahaQuiz",
+      issuer: "ISRO",
+      date: "2023",
+      image: certificate7,
+      description: "My Government initiative to promote awareness about India's space missions"
+    },
+    {
+      id: 7,
+      name: "Chandrayan MahaQuiz",
+      issuer: "ISRO",
+      date: "2023",
+      image: certificate8,
+      description: "My Government initiative to promote awareness about India's space missions"
+    },
+    {
+      id: 8,
       name: "Full Stack Development",
       issuer: "ShineSkill Software pvt Ltd",
       date: "2022",

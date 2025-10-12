@@ -49,6 +49,22 @@ function Certificate() {
     },
     {
       id: 4,
+      name: "JavaScript Essential",
+      issuer: "CISCO Netwroks",
+      date: "2024",
+      image: certificate7,
+      description: "My Government initiative to promote awareness about India's space missions"
+    },
+    {
+      id: 5,
+      name: "Cyber Security",
+      issuer: "CISCO Netwroks",
+      date: "2023",
+      image: certificate8,
+      description: "My Government initiative to promote awareness about India's space missions"
+    },
+    {
+      id: 6,
       name: "Front End Development - HTML",
       issuer: "Great Learning",
       date: "2023",
@@ -56,29 +72,14 @@ function Certificate() {
       description: "Full-stack web development covering HTML, CSS, JavaScript, Node.js, and databases"
     },
     {
-      id: 5,
+      id: 7,
       name: "Chandrayan MahaQuiz",
       issuer: "ISRO",
       date: "2023",
       image: certificate5,
       description: "My Government initiative to promote awareness about India's space missions"
     },
-    {
-      id: 6,
-      name: "Chandrayan MahaQuiz",
-      issuer: "ISRO",
-      date: "2023",
-      image: certificate7,
-      description: "My Government initiative to promote awareness about India's space missions"
-    },
-    {
-      id: 7,
-      name: "Chandrayan MahaQuiz",
-      issuer: "ISRO",
-      date: "2023",
-      image: certificate8,
-      description: "My Government initiative to promote awareness about India's space missions"
-    },
+    
     {
       id: 8,
       name: "Full Stack Development",

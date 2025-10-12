@@ -33,6 +33,66 @@
   background-attachment: fixed;
   animation: bg-move 26s ease-in-out infinite alternate;
   transition: background-color .6s ease, color .6s ease, background .6s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shining background effect for register page - Left to Right */
+.register-bg-wrapper::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    transparent 30%, 
+    rgba(255, 255, 255, 0.04) 50%, 
+    transparent 70%);
+  animation: registerShineLeft 3.5s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Shining background effect for register page - Right to Left */
+.register-bg-wrapper::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(-45deg, 
+    transparent 30%, 
+    rgba(139, 92, 246, 0.03) 50%, 
+    transparent 70%);
+  animation: registerShineRight 3.5s ease-in-out infinite 1.75s;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes registerShineLeft {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  50% {
+    transform: translateX(100%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(100%) skewX(-15deg);
+  }
+}
+
+@keyframes registerShineRight {
+  0% {
+    transform: translateX(100%) skewX(15deg);
+  }
+  50% {
+    transform: translateX(-100%) skewX(15deg);
+  }
+  100% {
+    transform: translateX(-100%) skewX(15deg);
+  }
 }
 
 @keyframes bg-move {
@@ -54,6 +114,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 10;
 }
 
 .register-form {
